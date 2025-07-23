@@ -307,72 +307,34 @@
                            <div class="col-12 mb-20">
                               <div class="tp-contact-form-input-box">
                                  <label for="meter-reading" style="display:block; margin-bottom: 8px; color: #666;">Current meter reading</label>
-                                 <div id="meter-container" style="display: flex; border: 2px solid #000; padding: 10px; border-radius: 8px; gap: 6px; width: fit-content;">
-                                   <!-- First 5 digits in orange -->
-                                   <input type="text" maxlength="1" class="digit-box orange">
-                                   <input type="text" maxlength="1" class="digit-box orange">
-                                   <input type="text" maxlength="1" class="digit-box orange">
-                                   <input type="text" maxlength="1" class="digit-box orange">
-                                   <input type="text" maxlength="1" class="digit-box orange">
+                                 <div style="display: flex; align-items: center; gap: 10px;">
 
-                                   <!-- Dot separator -->
-                                   <span style="align-self: center;">.</span>
+                                   <!-- Decrease button -->
+                                   <button type="button" onclick="changeReading(-0.001)" style="padding: 5px 10px; font-size: 18px;">−</button>
 
-                                   <!-- Last 3 digits in purple -->
-                                   <input type="text" maxlength="1" class="digit-box purple">
-                                   <input type="text" maxlength="1" class="digit-box purple">
-                                   <input type="text" maxlength="1" class="digit-box purple">
+                                   <!-- Number input -->
+                                   <input 
+                                     type="number" 
+                                     id="meter-reading" 
+                                     step="0.001" 
+                                     min="0" 
+                                     value="0.000"
+                                   >
+
+                                   <!-- Increase button -->
+                                   <button type="button" onclick="changeReading(0.001)" style="padding: 5px 10px; font-size: 18px;">+</button>
+
                                  </div>
 
-                                 <style>
-                                   .digit-box {
-                                     width: 30px;
-                                     height: 40px;
-                                     text-align: center;
-                                     font-size: 20px;
-                                     border: 2px solid;
-                                     border-radius: 4px;
-                                     outline: none;
-                                   }
-
-                                   .orange {
-                                     border-color: orange;
-                                   }
-
-                                   .purple {
-                                     border-color: purple;
-                                   }
-
-                                   .digit-box:focus {
-                                     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-                                   }
-                                 </style>
-
                                  <script>
-                                   const boxes = document.querySelectorAll('.digit-box');
-
-                                   boxes.forEach((box, idx) => {
-                                     box.addEventListener('input', (e) => {
-                                       const val = e.target.value;
-                                       if (/^[0-9]$/.test(val)) {
-                                         if (idx < boxes.length - 1) {
-                                           boxes[idx + 1].focus();
-                                         }
-                                       } else {
-                                         e.target.value = '';
-                                       }
-                                     });
-
-                                     box.addEventListener('keydown', (e) => {
-                                       if (e.key === 'Backspace') {
-                                         if (box.value === '' && idx > 0) {
-                                           boxes[idx - 1].focus();
-                                         }
-                                       }
-                                     });
-                                   });
+                                   function changeReading(delta) {
+                                     const input = document.getElementById('meter-reading');
+                                     let current = parseFloat(input.value) || 0;
+                                     current += delta;
+                                     if (current < 0) current = 0; // prevent going below zero
+                                     input.value = current.toFixed(3); // keep 3 decimal places
+                                   }
                                  </script>
-
                               </div>
                            </div>
                         </div>
