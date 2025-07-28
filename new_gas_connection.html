@@ -322,10 +322,11 @@
                                 <input type="text" name="mr3" maxlength="1" />
                                 <input type="text" name="mr4" maxlength="1" />
                                 <input type="text" name="mr5" maxlength="1" />
-                                <input type="text" value="." disabled maxlength="1" />
-                                <input type="text" name="mr6" maxlength="1" />
+                                <input type="text" name="mr6" value="." disabled maxlength="1" />
                                 <input type="text" name="mr7" maxlength="1" />
                                 <input type="text" name="mr8" maxlength="1" />
+                                <input type="text" name="mr9" maxlength="1" />
+                                <input type="hidden" name="Meter_Reading" id="Meter_Reading">
                               </div>
                             </div>
 
@@ -415,11 +416,52 @@
                             });
                           });
 
-                         
+                          // Inside your existing form submit event listener
+                        document.getElementById("my-main-form").addEventListener("submit", async function(event) {
+                          event.preventDefault();
+
+                          const form = event.target;
+                          const status = document.getElementById("form-status");
+                          const data = new FormData(form);
+
+                          //  Combine meter digits into one reading
+                          const meterInputs = form.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
+                          let meterReading = '';
+                          meterInputs.forEach(input => {
+                            meterReading += input.value;
+                          });
+
+                          document.getElementById('Meter_Reading').value = meterReading;
+
+                          status.innerHTML = "<span style='color: blue;'>Submitting...</span>";
+
+                          try {
+                            const response = await fetch(form.action, {
+                              method: form.method,
+                              body: new FormData(form), // use new FormData to include updated hidden field
+                              headers: { 'Accept': 'application/json' }
+                            });
+
+                            if (response.ok) {
+                              status.innerHTML = "<span style='color: green;'>Thanks for your submission!</span>";
+                              form.reset();
+                              document.getElementById("residentialFields").style.display = "none";
+                              document.getElementById("commercialField").style.display = "none";
+                            } else {
+                              const result = await response.json();
+                              if (result.errors) {
+                                status.innerHTML = "<span style='color: red;'>" + result.errors.map(e => e.message).join(", ") + "</span>";
+                              } else {
+                                status.innerHTML = "<span style='color: red;'>Oops! There was a problem submitting your form.</span>";
+                              }
+                            }
+                          } catch (error) {
+                            status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
+                          }
+                        });
+
                         </script>
 
-
-                      
                   </div>
                </div>
             </div>
