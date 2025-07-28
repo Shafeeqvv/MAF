@@ -203,143 +203,256 @@
                <div class="col-xl-12">
                   <div class="tp-contact-form-border">
                      <h4 class="tp-contact-form-title">Fill the form correctly</h4>
-                     <form action="#">
-                        <div class="row">
-                           <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+
+                     
+                        <form id="my-main-form" action="https://formsubmit.co/shafeeqsharafi@gmail.com" method="POST" enctype="multipart/form-data">
+                          <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
-                                 <select name="Region" class="nice-select country-select wide" required>
-                                    <option value="" disabled selected class="option">Select Region</option>
-                                    <option value="Abu Dhabi, Al Ain & Western Region" class="option">Abu Dhabi, Al Ain & Western Region</option>
-                                    <option value="Dubai & Northern Emirates" class="option">Dubai & Northern Emirates</option>
-                                 </select>
+                                <label for="Region">Select Region</label>
+                                <select name="Region" class="nice-select country-select wide" required>
+                                  <option value="Abu Dhabi, Al Ain & Western Region">Abu Dhabi, Al Ain & Western Region</option>
+                                  <option value="Dubai & Northern Emirates">Dubai & Northern Emirates</option>
+                                </select>
                               </div>
-                           </div>
-                           <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
-                                 <input type="text" name="Nationality" placeholder="Nationality">
+                                <label for="Nationality">Nationality</label>
+                                <input type="text" name="Nationality">
                               </div>
-                           </div>
-                           <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
-                                 <input type="text" name="Full Name" placeholder="Full Name">
+                                <label for="Full_Name">Full Name</label>
+                                <input type="text" name="Full_Name">
                               </div>
-                           </div>
-                           <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
-                                 <input type="email" name="Email" placeholder="Email">
+                                <label for="Email">Email</label>
+                                <input type="email" name="Email">
                               </div>
-                           </div>
-                           <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
-                                 <input type="text" name="Mobile Number" placeholder="Mobile Number">
+                                <label for="Mobile_Number">Mobile Number</label>
+                                <input type="text" name="Mobile_Number">
                               </div>
-                           </div>
-                           <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
-                                 <input type="text" name="Land line" placeholder="Land line">
-                              </div>
-                           </div>
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
-                              <label>Connection Type</label>
-                              <div class="tp-contact-form-input-box">
-                                 <label><input type="radio" name="connectionType" value="Residential"> Residential</label>
-                                 <label><input type="radio" name="connectionType" value="Commercial"> Commercial</label>
+                                <label for="Land_Line">Land line</label>
+                                <input type="text" name="Land_Line">
                               </div>
                             </div>
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
-                               <!-- Residential Input Boxes -->
-                              <div id="residentialFields" style="display: none;">
-                                <input type="text" name="Emirates Id" placeholder="Emirates Id" class="mb-2">
-                                <label for="EmiratesIdFile">Upload Emirates Id</label>
-                                <input type="file" name="EmiratesIdFile" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
-                                
-                                <input type="text" name="Passport No" placeholder="Passport No" class="mb-2">
-                                <label for="PassportFile">Upload Passport</label>
-                                <input type="file" name="PassportFile" accept=".jpg,.jpeg,.png,.pdf">
+                              <label>Connection Type</label>
+                              <div class="tp-contact-form-input-box">
+                                <label><input type="radio" name="Connection_Type" value="Residential"> Residential</label>
+                                <label><input type="radio" name="Connection_Type" value="Commercial"> Commercial</label>
                               </div>
-
-                              <div id="commercialField" style="display: none;">
-                                <input type="text" name="Other Id" placeholder="Other Id (Trade License, Embassy ID)" class="mb-2">
-
-                                <label for="vatFile">Upload VAT Certificate</label>
-                                <input type="file" name="VATFile" id="vatFile" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
-
-                                <label for="licenseFile">Upload Trade License</label>
-                                <input type="file" name="TradeLicenseFile" id="licenseFile" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
-
-                                <label for="otherDocFile">Upload Other Document</label>
-                                <input type="file" name="OtherDocumentFile" id="otherDocFile" accept=".jpg,.jpeg,.png,.pdf">
-                              </div>
-
                             </div>
-                           <script>
-                                 document.querySelectorAll('input[name="connectionType"]').forEach(radio => {
-                                    radio.addEventListener('change', function () {
-                                       const selected = this.value;
-                                       document.getElementById("residentialFields").style.display = selected === "Residential" ? "block" : "none";
-                                       document.getElementById("commercialField").style.display = selected === "Commercial" ? "block" : "none";
-                                    });
-                                 });
-                           </script>
 
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                 <input type="text" name="Building Name" placeholder="Building Name">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
+                              <!-- Residential -->
+                              <div id="residentialFields" style="display: none;">
+                                <label>Emirates Id</label>
+                                <input type="text" name="Emirates_Id" class="mb-2">
+
+                                <label>Upload Emirates Id</label>
+                                <input type="file" name="EmiratesId_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
+
+                                <label>Passport No</label>
+                                <input type="text" name="Passport_No" class="mb-2">
+
+                                <label>Upload Passport</label>
+                                <input type="file" name="Passport_File" accept=".jpg,.jpeg,.png,.pdf">
                               </div>
-                           </div>
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                 <input type="text" name="Apartment/Villa/Unit No" placeholder="Apartment/Villa/Unit No">
+
+                              <!-- Commercial -->
+                              <div id="commercialField" style="display: none;">
+                                <label>Other Id (Trade License, Embassy ID)</label>
+                                <input type="text" name="Other_Id" class="mb-2">
+
+                                <label>Upload VAT Certificate</label>
+                                <input type="file" name="VAT_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
+
+                                <label>Upload Trade License</label>
+                                <input type="file" name="Trade_License_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
+
+                                <label>Upload Other Document</label>
+                                <input type="file" name="Other_Document_File" accept=".jpg,.jpeg,.png,.pdf">
                               </div>
-                           </div>
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
-                                 <input type="text" name="Meter Serial number" placeholder="Meter Serial number">
+                                <label for="Building_Name">Building Name</label>
+                                <input type="text" name="Building_Name">
                               </div>
-                           </div>
+                            </div>
 
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
-                                 <input type="text" name="Meter Serial number" placeholder="Meter Serial number">
+                                <label for="Apartment_Unit_No">Apartment/Villa/Unit No</label>
+                                <input type="text" name="Apartment_Unit_No">
                               </div>
-                           </div>
-                           <div class="col-12 mb-20">
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
-                                 <label for="meter-reading" style="display:block; margin-bottom: 8px; color: #666;">Current meter reading</label>
-                                 <div style="display: flex; align-items: center; gap: 10px;">
-
-                                   <!-- Decrease button -->
-                                   <button type="button" onclick="changeReading(-0.001)" style="padding: 5px 10px; font-size: 18px;">−</button>
-
-                                   <!-- Number input -->
-                                   <input 
-                                     type="number" 
-                                     id="meter-reading" 
-                                     step="0.001" 
-                                     min="0" 
-                                     value="0.000"
-                                   >
-
-                                   <!-- Increase button -->
-                                   <button type="button" onclick="changeReading(0.001)" style="padding: 5px 10px; font-size: 18px;">+</button>
-
-                                 </div>
-
-                                 <script>
-                                   function changeReading(delta) {
-                                     const input = document.getElementById('meter-reading');
-                                     let current = parseFloat(input.value) || 0;
-                                     current += delta;
-                                     if (current < 0) current = 0; // prevent going below zero
-                                     input.value = current.toFixed(3); // keep 3 decimal places
-                                   }
-                                 </script>
+                                <label for="Meter_Serial_Number">Meter Serial Number</label>
+                                <input type="text" name="Meter_Serial_Number">
                               </div>
-                           </div>
-                        </div>
-                     </form>
-                     <button type="submit" class="tp-btn"><span>SEND message</span></button>
+                            </div>
+
+                            <!-- Meter Reading -->
+                            <div class="col-12 mb-20">
+                              <label for="Current_Meter_Reading">Current Meter Reading</label>
+                              <div id="reading-boxes" class="otp-container">
+                                <input type="text" name="mr1" maxlength="1" />
+                                <input type="text" name="mr2" maxlength="1" />
+                                <input type="text" name="mr3" maxlength="1" />
+                                <input type="text" name="mr4" maxlength="1" />
+                                <input type="text" name="mr5" maxlength="1" />
+                                <input type="text" value="." disabled maxlength="1" />
+                                <input type="text" name="mr6" maxlength="1" />
+                                <input type="text" name="mr7" maxlength="1" />
+                                <input type="text" name="mr8" maxlength="1" />
+                              </div>
+                            </div>
+
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-12 mb-20">
+                              <div class="tp-contact-form-input-box">
+                                <label for="MeterReadingImage">Attach Reading Image</label>
+                                <input type="file" name="MeterReadingImage" accept="image/*" capture="environment">
+                              </div>
+                            </div>
+
+                            <!-- Hidden Fields for FormSubmit -->
+                            <input type="hidden" name="_subject" value="New Connection Request">
+                            <input type="hidden" name="_captcha" value="false">
+
+                          </div>
+
+                          <button type="submit" class="tp-btn float-end"><span>Confirm</span></button>
+
+                          <!-- Message area below the button -->
+                          <p id="form-status" class="text-center m-2"></p>
+                        </form>
+
+                        <style>
+                          #reading-boxes input[type="text"] {
+                            width: 35px;
+                            height: 35px;
+                            font-size: 12px;
+                            padding: 5px;
+                            text-align: center;
+                            border: 1px solid #ccc;
+                            border-radius: 0px;
+                            outline: none;
+                            transition: border-color 0.2s;
+                          }
+
+                          #reading-boxes input[type="text"]:focus {
+                            border-color: red;
+                          }
+
+                          @media (max-width: 480px) {
+                            #reading-boxes input[type="text"] {
+                              width: 36px;
+                              height: 48px;
+                              font-size: 12px;
+                              padding: 5px;
+                              line-height: 48px;
+                            }
+                          }
+                        </style>
+
+                        <script>
+                          // Show/hide residential/commercial fields based on radio button
+                          document.querySelectorAll('input[name="Connection_Type"]').forEach(radio => {
+                            radio.addEventListener('change', function () {
+                              const selected = this.value;
+                              document.getElementById("residentialFields").style.display = selected === "Residential" ? "block" : "none";
+                              document.getElementById("commercialField").style.display = selected === "Commercial" ? "block" : "none";
+                            });
+                          });
+
+                          // Meter reading inputs auto-focus and validation
+                          const inputs = document.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
+                          inputs.forEach((input, index) => {
+                            input.addEventListener('input', () => {
+                              if (!/^\d$/.test(input.value)) {
+                                input.value = '';
+                                return;
+                              }
+                              if (input.value && index < inputs.length - 1) {
+                                inputs[index + 1].focus();
+                              }
+                            });
+
+                            input.addEventListener('keydown', (e) => {
+                              if (e.key === 'Backspace' && input.value === '' && index > 0) {
+                                inputs[index - 1].focus();
+                              }
+                            });
+
+                            input.addEventListener('paste', (e) => {
+                              e.preventDefault();
+                              const paste = e.clipboardData.getData('text').replace(/\D/g, '');
+                              paste.split('').forEach((char, i) => {
+                                if (i < inputs.length) inputs[i].value = char;
+                              });
+                              if (paste.length > 0 && inputs[0]) inputs[0].focus();
+                            });
+                          });
+
+                          // Submit form via fetch API and show message under the form
+                          document.getElementById("my-main-form").addEventListener("submit", async function(event) {
+                            event.preventDefault();
+
+                            const form = event.target;
+                            const status = document.getElementById("form-status");
+                            const data = new FormData(form);
+
+                            status.innerHTML = "<span style='color: blue;'>Submitting...</span>";
+
+                            try {
+                              const response = await fetch(form.action, {
+                                method: form.method,
+                                body: data,
+                                headers: { 'Accept': 'application/json' }
+                              });
+
+                              if (response.ok) {
+                                status.innerHTML = "<span style='color: green;'>Thanks for your submission!</span>";
+                                form.reset();
+                                document.getElementById("residentialFields").style.display = "none";
+                                document.getElementById("commercialField").style.display = "none";
+                              } else {
+                                const result = await response.json();
+                                if (result.errors) {
+                                  status.innerHTML = "<span style='color: red;'>" + result.errors.map(e => e.message).join(", ") + "</span>";
+                                } else {
+                                  status.innerHTML = "<span style='color: red;'>Oops! There was a problem submitting your form.</span>";
+                                }
+                              }
+                            } catch (error) {
+                              status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
+                            }
+                          });
+                        </script>
+
+
+                      
                   </div>
                </div>
             </div>
