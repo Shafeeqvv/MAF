@@ -415,40 +415,7 @@
                             });
                           });
 
-                          // Submit form via fetch API and show message under the form
-                          document.getElementById("my-main-form").addEventListener("submit", async function(event) {
-                            event.preventDefault();
-
-                            const form = event.target;
-                            const status = document.getElementById("form-status");
-                            const data = new FormData(form);
-
-                            status.innerHTML = "<span style='color: blue;'>Submitting...</span>";
-
-                            try {
-                              const response = await fetch(form.action, {
-                                method: form.method,
-                                body: data,
-                                headers: { 'Accept': 'application/json' }
-                              });
-
-                              if (response.ok) {
-                                status.innerHTML = "<span style='color: green;'>Thanks for your submission!</span>";
-                                form.reset();
-                                document.getElementById("residentialFields").style.display = "none";
-                                document.getElementById("commercialField").style.display = "none";
-                              } else {
-                                const result = await response.json();
-                                if (result.errors) {
-                                  status.innerHTML = "<span style='color: red;'>" + result.errors.map(e => e.message).join(", ") + "</span>";
-                                } else {
-                                  status.innerHTML = "<span style='color: red;'>Oops! There was a problem submitting your form.</span>";
-                                }
-                              }
-                            } catch (error) {
-                              status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
-                            }
-                          });
+                         
                         </script>
 
 
