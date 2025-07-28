@@ -267,7 +267,7 @@
                                 <input type="text" name="Emirates_Id" class="mb-2">
 
                                 <label>Upload Emirates Id</label>
-                                <input type="file" name="EmiratesId_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
+                                <input type="file" name="EmiratesId_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2"><br>
 
                                 <label>Passport No</label>
                                 <input type="text" name="Passport_No" class="mb-2">
@@ -416,22 +416,51 @@
                             });
                           });
 
-                          // Combine reading and return true to allow submission
-                          function combineMeterReading() {
-                            const inputs = document.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
-                            let reading = '';
-                            inputs.forEach((input, index) => {
-                              reading += input.value;
+                          // Inside your existing form submit event listener
+                        document.getElementById("my-main-form").addEventListener("submit", async function(event) {
+                          event.preventDefault();
+
+                          const form = event.target;
+                          const status = document.getElementById("form-status");
+                          const data = new FormData(form);
+
+                          //  Combine meter digits into one reading
+                          const meterInputs = form.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
+                          let meterReading = '';
+                          meterInputs.forEach(input => {
+                            meterReading += input.value;
+                          });
+
+                          document.getElementById('Meter_Reading').value = meterReading;
+
+                          status.innerHTML = "<span style='color: blue;'>Submitting...</span>";
+
+                          try {
+                            const response = await fetch(form.action, {
+                              method: form.method,
+                              body: new FormData(form), // use new FormData to include updated hidden field
+                              headers: { 'Accept': 'application/json' }
                             });
 
-                            // Final formatted value like "85858.56"
-                            const formatted = reading.slice(0, 5) + '.' + reading.slice(5);
-                            document.getElementById('Meter_Reading').value = formatted;
-
-                            return true; // allow normal form submission
+                            if (response.ok) {
+                              status.innerHTML = "<span style='color: green;'>Thanks for your submission!</span>";
+                              form.reset();
+                              document.getElementById("residentialFields").style.display = "none";
+                              document.getElementById("commercialField").style.display = "none";
+                            } else {
+                              const result = await response.json();
+                              if (result.errors) {
+                                status.innerHTML = "<span style='color: red;'>" + result.errors.map(e => e.message).join(", ") + "</span>";
+                              } else {
+                                status.innerHTML = "<span style='color: red;'>Oops! There was a problem submitting your form.</span>";
+                              }
+                            }
+                          } catch (error) {
+                            status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
                           }
-                        </script>
+                        });
 
+                        </script>
 
                   </div>
                </div>
