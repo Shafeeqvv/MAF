@@ -202,199 +202,120 @@
                      <h4 class="tp-contact-form-title">Please provide your details</h4>
 
                      
-                        <form id="my-main-form" action="https://formsubmit.co/shafeeqsharafi@gmail.com" method="POST" enctype="multipart/form-data">
-                          <div class="row">
+                     <form id="my-main-form" action="https://formsubmit.co/shafeeqsharafi@gmail.com" method="POST" enctype="multipart/form-data">
+                       <div class="row">
+                         <!-- Nationality -->
+                         <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                           <div class="tp-contact-form-input-box">
+                             <label for="Nationality">Nationality <span style="color: red;">*</span></label>
+                             <input type="text" name="Nationality" required>
+                           </div>
+                         </div>
 
-                           <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                <label for="Region">Select Region <span style="color: red;">*</span></label>
-                                <select name="Region" class="nice-select country-select wide" required>
-                                  <option value="Abu Dhabi, Al Ain & Western Region">Abu Dhabi, Al Ain & Western Region</option>
-                                  <option value="Dubai & Northern Emirates">Dubai & Northern Emirates</option>
-                                </select>
-                              </div>
-                            </div>-->
+                         <!-- Full Name -->
+                         <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                           <div class="tp-contact-form-input-box">
+                             <label for="Full_Name">Full Name <span style="color: red;">*</span></label>
+                             <input type="text" name="Full_Name" required>
+                           </div>
+                         </div>
 
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                <label for="Nationality">Nationality<span style="color: red;">*</span></label>
-                                <input type="text" name="Nationality" required>
-                              </div>
-                            </div>
+                         <!-- Email -->
+                         <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                           <div class="tp-contact-form-input-box">
+                             <label for="Email">Email <span style="color: red;">*</span></label>
+                             <input type="email" name="Email" required>
+                           </div>
+                         </div>
 
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                <label for="Full_Name">Full Name<span style="color: red;">*</span></label>
-                                <input type="text" name="Full_Name" required>
-                              </div>
-                            </div>
+                         <!-- Mobile -->
+                         <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                           <div class="tp-contact-form-input-box">
+                             <label for="Mobile_Number">Mobile Number <span style="color: red;">*</span></label>
+                             <input type="text" name="Mobile_Number" required maxlength="10" minlength="10" pattern="\d{10}" title="Enter a valid 10-digit mobile number">
+                           </div>
+                         </div>
 
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                <label for="Email">Email<span style="color: red;">*</span></label>
-                                <input type="email" name="Email" required>
-                              </div>
-                            </div>
+                         <!-- Land Line -->
+                         <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                           <div class="tp-contact-form-input-box">
+                             <label for="Land_Line">Land Line</label>
+                             <input type="text" name="Land_Line">
+                           </div>
+                         </div>
 
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                <label for="Mobile_Number">Mobile Number<span style="color: red;">*</span></label>
-                                 <input type="text" name="Mobile_Number" 
-                                        required 
-                                        maxlength="10" 
-                                        minlength="10" 
-                                        pattern="\d{10}" 
-                                        title="Enter a valid 10-digit mobile number"> 
-                                 </div>
-                            </div>
+                         <!-- Building -->
+                         <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                           <div class="tp-contact-form-input-box">
+                             <label for="Building_Name">Building Name <span style="color: red;">*</span></label>
+                             <input type="text" name="Building_Name" required>
+                           </div>
+                         </div>
 
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                <label for="Land_Line">Land line</label>
-                                <input type="text" name="Land_Line">
-                              </div>
-                            </div>
+                         <!-- Description -->
+                         <div class="col-12 mb-20">
+                           <div class="tp-contact-form-input-box">
+                             <label for="Description">Description</label>
+                             <textarea name="Description"></textarea>
+                           </div>
+                         </div>
 
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                <label for="Building_Name">Building Name <span style="color: red;">*</span></label>
-                                <input type="text" name="Building_Name" required>
-                              </div>
-                            </div>
+                         <!-- File -->
+                         <div class="col-xl-3 col-lg-3 col-md-3 col-12 mb-20">
+                           <div class="tp-contact-form-input-box">
+                             <label for="File_Attachment">Attach file</label>
+                             <input type="file" name="File_Attachment">
+                           </div>
+                         </div>
 
-                            <div class="col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                <label for="Description">Description</label>
-                                <textarea name="Description"></textarea>
-                              </div>
-                            </div>
+                         <!-- Hidden config for formsubmit.co -->
+                         <input type="hidden" name="_subject" value="New submission for Gas Connection!">
+                         <input type="hidden" name="_captcha" value="false">
+                         <input type="hidden" name="_template" value="table">
+                       </div>
 
-                            <input type="hidden" name="_subject" value="Complaint Submission">
-                            <input type="hidden" name="_captcha" value="false">
+                       <!-- Submit Button -->
+                       <button type="submit" class="tp-btn float-end"><span>Confirm</span></button>
 
-                            <div class="col-xl-3 col-lg-3 col-md-3 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                <label for="File_Attachment">Attach  file</label>
-                                <input type="file" name="File_Attachment" >
-                              </div>
-                            </div>
-
-                          </div>
-
-                          <button type="submit" class="tp-btn float-end"><span>Confirm</span></button>
-
-                          <!-- Message area below the button -->
-                          <p id="form-status" class="text-center m-2"></p>
-
-                           <input type="hidden" name="_subject" value="New submission for Gas Connection! ">
-                           <input type="hidden" name="_captcha" value="false">
-                           <input type="hidden" name="_template" value="table">
-
-                        </form>
+                       <!-- Status Message -->
+                       <p id="form-status" class="text-center m-2"></p>
+                     </form>
 
                        
 
                         
-                       <script>
-                       
-                       document.querySelectorAll('input[name="Connection_Type"]').forEach(radio => {
-                          radio.addEventListener('change', function () {
-                            const selected = this.value;
+                     <script>
+                     document.getElementById("my-main-form").addEventListener("submit", async function(event) {
+                       event.preventDefault();
 
-                            const emiratesIdField = document.getElementById("emirates-id");
-                            const otherIdField = document.getElementById("other-id");
+                       const form = event.target;
+                       const status = document.getElementById("form-status");
 
-                            if (selected === "Residential") {
-                              document.getElementById("residentialFields").style.display = "block";
-                              document.getElementById("commercialField").style.display = "none";
-                              emiratesIdField.setAttribute("required", "required");
-                              otherIdField.removeAttribute("required")
-                            } else if (selected === "Commercial") {
-                              document.getElementById("residentialFields").style.display = "none";
-                              document.getElementById("commercialField").style.display = "block";
-                              emiratesIdField.removeAttribute("required");
-                              otherIdField.setAttribute("required", "required");
-                            }
-                          });
-                        });
- 
+                       status.innerHTML = "<span style='color: blue;'>Submitting...</span>";
 
-                       // Meter reading inputs auto-focus and validation
-                       const inputs = document.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
-                       inputs.forEach((input, index) => {
-                         input.addEventListener('input', () => {
-                           if (!/^\d$/.test(input.value)) {
-                             input.value = '';
-                             return;
-                           }
-                           if (input.value && index < inputs.length - 1) {
-                             inputs[index + 1].focus();
-                           }
+                       try {
+                         const response = await fetch(form.action, {
+                           method: form.method,
+                           body: new FormData(form),
+                           headers: { 'Accept': 'application/json' }
                          });
 
-                         input.addEventListener('keydown', (e) => {
-                           if (e.key === 'Backspace' && input.value === '' && index > 0) {
-                             inputs[index - 1].focus();
-                           }
-                         });
-
-                         input.addEventListener('paste', (e) => {
-                           e.preventDefault();
-                           const paste = e.clipboardData.getData('text').replace(/\D/g, '');
-                           paste.split('').forEach((char, i) => {
-                             if (i < inputs.length) inputs[i].value = char;
-                           });
-                           if (paste.length > 0 && inputs[0]) inputs[0].focus();
-                         });
-                       });
-
-                       // Handle form submission
-                       document.getElementById("my-main-form").addEventListener("submit", async function(event) {
-                         event.preventDefault();
-
-                         const form = event.target;
-                         const status = document.getElementById("form-status");
-                         
-                         // Combine meter digits into one reading, insert dot after 5th digit
-                         const meterInputs = form.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
-                         let meterReading = '';
-                         meterInputs.forEach((input, index) => {
-                           meterReading += input.value;
-                           if (index === 4) {
-                             meterReading += '.'; // Insert dot after 5th digit
-                           }
-                         });
-
-                         document.getElementById('Meter_Reading').value = meterReading;
-
-                         status.innerHTML = "<span style='color: blue;'>Submitting...</span>";
-
-                         try {
-                           const response = await fetch(form.action, {
-                             method: form.method,
-                             body: new FormData(form), // includes updated hidden fields
-                             headers: { 'Accept': 'application/json' }
-                           });
-
-                           if (response.ok) {
-                             status.innerHTML = "<span style='color: green;'>Thanks for your submission!</span>";
-                             form.reset();
-                             document.getElementById("residentialFields").style.display = "none";
-                             document.getElementById("commercialField").style.display = "none";
+                         if (response.ok) {
+                           status.innerHTML = "<span style='color: green;'>Thanks for your submission!</span>";
+                           form.reset();
+                         } else {
+                           const result = await response.json();
+                           if (result.errors) {
+                             status.innerHTML = "<span style='color: red;'>" + result.errors.map(e => e.message).join(", ") + "</span>";
                            } else {
-                             const result = await response.json();
-                             if (result.errors) {
-                               status.innerHTML = "<span style='color: red;'>" + result.errors.map(e => e.message).join(", ") + "</span>";
-                             } else {
-                               status.innerHTML = "<span style='color: red;'>Oops! There was a problem submitting your form.</span>";
-                             }
+                             status.innerHTML = "<span style='color: red;'>Oops! There was a problem submitting your form.</span>";
                            }
-                         } catch (error) {
-                           status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
                          }
-                       });
+                       } catch (error) {
+                         status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
+                       }
+                     });
                      </script>
-
 
                         
 
