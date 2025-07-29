@@ -263,39 +263,37 @@
                             </div>
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
-                              <!-- Residential -->
-                              <div id="residentialFields" style="display: none;">
-                                <label>Emirates Id<span style="color: red;">*</span></label>
-                                 <input type="text" name="Emirates_Id" 
-                                        class="mb-2" 
-                                        id="emirates-id" 
-                                        placeholder="784-YYYY-NNNNNNN-N" 
-                                        pattern="784-\d{4}-\d{7}-\d{1}" 
-                                        title="Format: 784-YYYY-NNNNNNN-N" 
-                                        maxlength="19" 
-                                        >
-                                <label>Upload Emirates Id</label>
-                                <input type="file" name="EmiratesId_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2"><br>
+                                 <!-- Residential -->
+                                 <div id="residentialFields" style="display: none;">
+                                   <label>Emirates Id<span style="color: red;">*</span></label>
+                                    <input type="text" name="Emirates_Id" 
+                                           class="mb-2" 
+                                           id="emirates-id" 
+                                           placeholder="784-YYYY-NNNNNNN-N" 
+                                           pattern="784-\d{4}-\d{7}-\d{1}" 
+                                           title="Format: 784-YYYY-NNNNNNN-N" 
+                                           maxlength="19" 
+                                           >
+                                   <label>Upload Emirates Id</label>
+                                   <input type="file" name="EmiratesId_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2"><br>
 
-                                <label>Upload Ejari Document</label>
-                                <input type="file" name="Ejari_Document_File_R" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
-                                
-                              </div>
+                                   <label>Upload Ejari Document</label>
+                                   <input type="file" name="Ejari_Document_File_R" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
+                                 </div>
+                                 <!-- Commercial -->
+                                 <div id="commercialField" style="display: none;">
+                                   <label>Other Id (Trade License, Embassy ID)<span style="color: red;">*</span></label>
+                                   <input type="text" id="other-id" name="Other_Id" class="mb-2">
 
-                              <!-- Commercial -->
-                              <div id="commercialField" style="display: none;">
-                                <label>Other Id (Trade License, Embassy ID)<span style="color: red;">*</span></label>
-                                <input type="text" id="other-id" name="Other_Id" class="mb-2">
+                                   <label>Upload VAT Certificate</label>
+                                   <input type="file" name="VAT_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
 
-                                <label>Upload VAT Certificate</label>
-                                <input type="file" name="VAT_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
+                                   <label>Upload Trade License</label>
+                                   <input type="file" name="Trade_License_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
 
-                                <label>Upload Trade License</label>
-                                <input type="file" name="Trade_License_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
-
-                                <label>Upload Ejari Document</label>
-                                <input type="file" name="Ejari_Document_File_C" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
-                              </div>
+                                   <label>Upload Ejari Document</label>
+                                   <input type="file" name="Ejari_Document_File_C" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
+                                 </div>
                             </div>
 
                             <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
@@ -320,7 +318,7 @@
                             </div>
 
                             <!-- Meter Reading -->
-                              <div class="col-12 mb-20">
+                            <div class="col-12 mb-20">
                                 <label for="Current_Meter_Reading">Current Meter Reading<span style="color: red;">*</span></label>
                                 <div id="reading-boxes" class="otp-container">
                                   <input type="text" maxlength="1" />
@@ -338,16 +336,14 @@
                                   
                                   <input type="hidden" name="Meter_Reading" id="Meter_Reading">
                                 </div>
-                              </div>
+                            </div>
 
                             <div class="col-xl-3 col-lg-3 col-md-3 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
-                                <label for="MeterReadingImage">Attach Reading Image</label>
-                                <input type="file" name="MeterReadingImage" accept="image/*" capture="environment">
+                                <label for="Meter_Reading_Image">Attach Reading Image</label>
+                                <input type="file" name="Meter_Reading_Image" accept="image/*" capture="environment">
                               </div>
                             </div>
-
-                           
 
                             <!-- Hidden Fields for FormSubmit -->
                             <input type="hidden" name="_subject" value="New Gas Connection Request">
@@ -356,7 +352,6 @@
                           </div>
 
                           <button type="button" class="tp-btn float-end" onclick="openModal()"><span>Confirm</span></button>
-
 
 
                           <!-- Message area below the button -->
@@ -390,13 +385,13 @@
                                       <div class="buttons">
                                         <button type="button" onclick="clearSignature()">Clear</button>
                                         <button type="button" onclick="saveSignature()">Save Signature</button>
-                                          <input type="file" name="Signature_File" id="signature-file" style="display: block;" /></div>
+                                        <input type="file" name="Signature_File" id="signature-file" style="display: block;" /></div>
                                     </div>
                                   </div>
 
                                   <!-- Final Confirmation -->
                                   <div class="modal-footer">
-                                    <button type="button" class="tp-btn" onclick="submitForm()">Submit</button>
+                                    <button type="button" class="tp-btn" style="color: #fff;" onclick="submitForm()">Submit</button>
                                     <button class="tp-btn-secondary" onclick="closeModal()">Cancel</button>
                                   </div>
                                 </div>
@@ -404,242 +399,257 @@
                            </form>
 
                            <script>
-                                // ================= Modal Open/Close =================
-                                function openModal() {
-                                  document.getElementById("termsModal").style.display = "flex";
-                                }
+  // ================= Modal Open/Close =================
+  function openModal() {
+    document.getElementById("termsModal").style.display = "flex";
+  }
 
-                                function closeModal() {
-                                  document.getElementById("termsModal").style.display = "none";
-                                }
+  function closeModal() {
+    document.getElementById("termsModal").style.display = "none";
+  }
 
-                                // ================= Signature Handling =================
-                                const popupCanvas = document.getElementById('popup-signature-pad');
-                                const popupCtx = popupCanvas.getContext('2d');
+  // ================= Signature Handling =================
+  const popupCanvas = document.getElementById('popup-signature-pad');
+  const popupCtx = popupCanvas.getContext('2d');
+  let drawing = false;
 
-                                let drawing = false;
+  function resizeCanvas() {
+    // Resize canvas to be full width (max 500px) and fixed height 150px
+    popupCanvas.width = Math.min(window.innerWidth * 0.8, 500);
+    popupCanvas.height = 150;
 
-                                function resizeCanvas() {
-                                  // Resize canvas to be full width (max 500px) and fixed height 150px
-                                  popupCanvas.width = Math.min(window.innerWidth * 0.8, 500);
-                                  popupCanvas.height = 150;
+    // Fill white background
+    popupCtx.fillStyle = "#fff";
+    popupCtx.fillRect(0, 0, popupCanvas.width, popupCanvas.height);
+  }
 
-                                  // Fill white background
-                                  popupCtx.fillStyle = "#fff";
-                                  popupCtx.fillRect(0, 0, popupCanvas.width, popupCanvas.height);
-                                }
+  // Initial resize
+  resizeCanvas();
 
-                                // Initial resize
-                                resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
 
-                                window.addEventListener('resize', resizeCanvas);
+  function getPos(e) {
+    const rect = popupCanvas.getBoundingClientRect();
+    if (e.touches && e.touches.length > 0) {
+      return {
+        x: e.touches[0].clientX - rect.left,
+        y: e.touches[0].clientY - rect.top
+      };
+    } else {
+      return {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+    }
+  }
 
-                                function getPos(e) {
-                                  const rect = popupCanvas.getBoundingClientRect();
-                                  if (e.touches && e.touches.length > 0) {
-                                    return {
-                                      x: e.touches[0].clientX - rect.left,
-                                      y: e.touches[0].clientY - rect.top
-                                    };
-                                  } else {
-                                    return {
-                                      x: e.clientX - rect.left,
-                                      y: e.clientY - rect.top
-                                    };
-                                  }
-                                }
+  function startDraw(e) {
+    drawing = true;
+    const pos = getPos(e);
+    popupCtx.beginPath();
+    popupCtx.moveTo(pos.x, pos.y);
+    e.preventDefault();
+  }
 
-                                function startDraw(e) {
-                                  drawing = true;
-                                  const pos = getPos(e);
-                                  popupCtx.beginPath();
-                                  popupCtx.moveTo(pos.x, pos.y);
-                                  e.preventDefault();
-                                }
+  function draw(e) {
+    if (!drawing) return;
+    const pos = getPos(e);
+    popupCtx.lineTo(pos.x, pos.y);
+    popupCtx.strokeStyle = "#000";  // Black color
+    popupCtx.lineWidth = 2;
+    popupCtx.lineCap = "round";
+    popupCtx.stroke();
+    e.preventDefault();
+  }
 
-                                function draw(e) {
-                                  if (!drawing) return;
-                                  const pos = getPos(e);
-                                  popupCtx.lineTo(pos.x, pos.y);
-                                  popupCtx.strokeStyle = "#000";  // Black color
-                                  popupCtx.lineWidth = 2;
-                                  popupCtx.lineCap = "round";
-                                  popupCtx.stroke();
-                                  e.preventDefault();
-                                }
+  function stopDraw(e) {
+    if (!drawing) return;
+    drawing = false;
+    e.preventDefault();
+  }
 
-                                function stopDraw(e) {
-                                  if (!drawing) return;
-                                  drawing = false;
-                                  e.preventDefault();
-                                }
+  // Mouse events
+  popupCanvas.addEventListener('mousedown', startDraw);
+  popupCanvas.addEventListener('mousemove', draw);
+  popupCanvas.addEventListener('mouseup', stopDraw);
+  popupCanvas.addEventListener('mouseleave', stopDraw);
 
-                                // Mouse events
-                                popupCanvas.addEventListener('mousedown', startDraw);
-                                popupCanvas.addEventListener('mousemove', draw);
-                                popupCanvas.addEventListener('mouseup', stopDraw);
-                                popupCanvas.addEventListener('mouseleave', stopDraw);
+  // Touch events
+  popupCanvas.addEventListener('touchstart', startDraw, { passive: false });
+  popupCanvas.addEventListener('touchmove', draw, { passive: false });
+  popupCanvas.addEventListener('touchend', stopDraw);
+  popupCanvas.addEventListener('touchcancel', stopDraw);
 
-                                // Touch events
-                                popupCanvas.addEventListener('touchstart', startDraw, { passive: false });
-                                popupCanvas.addEventListener('touchmove', draw, { passive: false });
-                                popupCanvas.addEventListener('touchend', stopDraw);
-                                popupCanvas.addEventListener('touchcancel', stopDraw);
+  // Clear the signature pad
+  function clearSignature() {
+    popupCtx.clearRect(0, 0, popupCanvas.width, popupCanvas.height);
+    popupCtx.fillStyle = "#fff";
+    popupCtx.fillRect(0, 0, popupCanvas.width, popupCanvas.height);
+    document.getElementById("signature-file").value = '';
+  }
 
-                                // Clear the signature pad
-                                function clearSignature() {
-                                  popupCtx.clearRect(0, 0, popupCanvas.width, popupCanvas.height);
-                                  popupCtx.fillStyle = "#fff";
-                                  popupCtx.fillRect(0, 0, popupCanvas.width, popupCanvas.height);
-                                  document.getElementById("signature-file").value = '';
-                                }
+  // Save the signature as a PNG and put it into hidden file input
+  function saveSignature() {
+    // Check if blank
+    const blankCanvas = document.createElement('canvas');
+    blankCanvas.width = popupCanvas.width;
+    blankCanvas.height = popupCanvas.height;
+    const blankCtx = blankCanvas.getContext('2d');
+    blankCtx.fillStyle = "#fff";
+    blankCtx.fillRect(0, 0, blankCanvas.width, blankCanvas.height);
 
-                                // Save the signature as a PNG and put it into hidden file input
-                                function saveSignature() {
-                                  // Check if blank
-                                  const blankCanvas = document.createElement('canvas');
-                                  blankCanvas.width = popupCanvas.width;
-                                  blankCanvas.height = popupCanvas.height;
-                                  const blankCtx = blankCanvas.getContext('2d');
-                                  blankCtx.fillStyle = "#fff";
-                                  blankCtx.fillRect(0, 0, blankCanvas.width, blankCanvas.height);
+    if (popupCanvas.toDataURL() === blankCanvas.toDataURL()) {
+      alert("Please sign before saving.");
+      return;
+    }
 
-                                  if (popupCanvas.toDataURL() === blankCanvas.toDataURL()) {
-                                    alert("Please sign before saving.");
-                                    return;
-                                  }
+    popupCanvas.toBlob(function(blob) {
+      const file = new File([blob], "signature.png", { type: "image/png" });
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      document.getElementById("signature-file").files = dt.files;
+      alert("Signature saved!");
+    });
+  }
 
-                                  popupCanvas.toBlob(function(blob) {
-                                    const file = new File([blob], "signature.png", { type: "image/png" });
-                                    const dt = new DataTransfer();
-                                    dt.items.add(file);
-                                    document.getElementById("signature-file").files = dt.files;
-                                    alert("Signature saved!");
-                                  });
-                                }
+  // ================= Final Form Submit =================
+  function submitForm() {
+    const accepted = document.getElementById("accept-terms").checked;
+    const sigFile = document.getElementById("signature-file");
 
+    if (!accepted) {
+      alert("You must accept the terms and conditions.");
+      return;
+    }
 
-                                // ================= Final Form Submit =================
-                                function submitForm() {
-                                  const accepted = document.getElementById("accept-terms").checked;
-                                  const sigFile = document.getElementById("signature-file");
+    if (!sigFile.files || sigFile.files.length === 0) {
+      alert("Please draw and save your signature.");
+      return;
+    }
 
-                                  if (!accepted) {
-                                    alert("You must accept the terms and conditions.");
-                                    return;
-                                  }
+    document.getElementById("termsModal").style.display = "none";
+    document.getElementById("my-main-form").requestSubmit();
+  }
 
-                                  if (!sigFile.files || sigFile.files.length === 0) {
-                                    alert("Please draw and save your signature.");
-                                    return;
-                                  }
+  // ================= Emirates ID Formatter =================
+  document.getElementById("emirates-id").addEventListener("input", function (e) {
+    let value = e.target.value.replace(/\D/g, "").substring(0, 15);
+    let formatted = "";
 
-                                  document.getElementById("termsModal").style.display = "none";
-                                  document.getElementById("my-main-form").requestSubmit();
-                                }
+    if (value.length > 0) formatted = value.substring(0, 3);
+    if (value.length >= 4) formatted += "-" + value.substring(3, 7);
+    if (value.length >= 8) formatted += "-" + value.substring(7, 14);
+    if (value.length >= 15) formatted += "-" + value.substring(14, 15);
 
-                                // ================= Emirates ID Formatter =================
-                                document.getElementById("emirates-id").addEventListener("input", function (e) {
-                                  let value = e.target.value.replace(/\D/g, "").substring(0, 15);
-                                  let formatted = "";
+    e.target.value = formatted;
+  });
 
-                                  if (value.length > 0) formatted = value.substring(0, 3);
-                                  if (value.length >= 4) formatted += "-" + value.substring(3, 7);
-                                  if (value.length >= 8) formatted += "-" + value.substring(7, 14);
-                                  if (value.length >= 15) formatted += "-" + value.substring(14, 15);
+  // ================= Connection Type Toggle =================
+  document.querySelectorAll('input[name="Connection_Type"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+      const emiratesIdField = document.getElementById("emirates-id");
+      const otherIdField = document.getElementById("other-id");
 
-                                  e.target.value = formatted;
-                                });
+      if (this.value === "Residential") {
+        document.getElementById("residentialFields").style.display = "block";
+        document.getElementById("commercialField").style.display = "none";
+        emiratesIdField.required = true;
+        otherIdField.required = false;
+      } else {
+        document.getElementById("residentialFields").style.display = "none";
+        document.getElementById("commercialField").style.display = "block";
+        emiratesIdField.required = false;
+        otherIdField.required = true;
+      }
+    });
+  });
 
-                                // ================= Connection Type Toggle =================
-                                document.querySelectorAll('input[name="Connection_Type"]').forEach(radio => {
-                                  radio.addEventListener('change', function () {
-                                    const emiratesIdField = document.getElementById("emirates-id");
-                                    const otherIdField = document.getElementById("other-id");
+  // ================= Meter Reading Logic =================
+  const inputs = document.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
+  inputs.forEach((input, index) => {
+    input.addEventListener('input', () => {
+      if (!/^\d$/.test(input.value)) {
+        input.value = '';
+        return;
+      }
+      if (input.value && index < inputs.length - 1) {
+        inputs[index + 1].focus();
+      }
+    });
 
-                                    if (this.value === "Residential") {
-                                      document.getElementById("residentialFields").style.display = "block";
-                                      document.getElementById("commercialField").style.display = "none";
-                                      emiratesIdField.required = true;
-                                      otherIdField.required = false;
-                                    } else {
-                                      document.getElementById("residentialFields").style.display = "none";
-                                      document.getElementById("commercialField").style.display = "block";
-                                      emiratesIdField.required = false;
-                                      otherIdField.required = true;
-                                    }
-                                  });
-                                });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && input.value === '' && index > 0) {
+        inputs[index - 1].focus();
+      }
+    });
 
-                                // ================= Meter Reading Logic =================
-                                const inputs = document.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
-                                inputs.forEach((input, index) => {
-                                  input.addEventListener('input', () => {
-                                    if (!/^\d$/.test(input.value)) {
-                                      input.value = '';
-                                      return;
-                                    }
-                                    if (input.value && index < inputs.length - 1) {
-                                      inputs[index + 1].focus();
-                                    }
-                                  });
+    input.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const paste = e.clipboardData.getData('text').replace(/\D/g, '');
+      paste.split('').forEach((char, i) => {
+        if (i < inputs.length) inputs[i].value = char;
+      });
+      if (paste.length > 0 && inputs[0]) inputs[0].focus();
+    });
+  });
 
-                                  input.addEventListener('keydown', (e) => {
-                                    if (e.key === 'Backspace' && input.value === '' && index > 0) {
-                                      inputs[index - 1].focus();
-                                    }
-                                  });
+  // ================= Form Submission =================
+  document.getElementById("my-main-form").addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const form = event.target;
+    const status = document.getElementById("form-status");
 
-                                  input.addEventListener('paste', (e) => {
-                                    e.preventDefault();
-                                    const paste = e.clipboardData.getData('text').replace(/\D/g, '');
-                                    paste.split('').forEach((char, i) => {
-                                      if (i < inputs.length) inputs[i].value = char;
-                                    });
-                                    if (paste.length > 0 && inputs[0]) inputs[0].focus();
-                                  });
-                                });
+    // Combine meter digits
+    const meterInputs = form.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
+    let meterReading = '';
+    meterInputs.forEach((input, index) => {
+      meterReading += input.value;
+      if (index === 4) meterReading += '.';
+    });
+    document.getElementById('Meter_Reading').value = meterReading;
 
-                                // ================= Form Submission =================
-                                document.getElementById("my-main-form").addEventListener("submit", async function (event) {
-                                  event.preventDefault();
-                                  const form = event.target;
-                                  const status = document.getElementById("form-status");
+    status.innerHTML = "<span style='color: blue;'>Submitting...</span>";
 
-                                  // Combine meter digits
-                                  const meterInputs = form.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
-                                  let meterReading = '';
-                                  meterInputs.forEach((input, index) => {
-                                    meterReading += input.value;
-                                    if (index === 4) meterReading += '.';
-                                  });
-                                  document.getElementById('Meter_Reading').value = meterReading;
+    // Get current timestamp for uniqueness
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
 
-                                  status.innerHTML = "<span style='color: blue;'>Submitting...</span>";
+    const formData = new FormData(form);
 
-                                  try {
-                                    const response = await fetch(form.action, {
-                                      method: form.method,
-                                      body: new FormData(form),
-                                      headers: { 'Accept': 'application/json' }
-                                    });
+    // Re-append renamed files
+    ['Ejari_Document_File_R', 'Ejari_Document_File_C', 'EmiratesId_File', 'VAT_File', 'Trade_License_File', 'Meter_Reading_Image', 'Signature_File'].forEach(id => {
+      const input = form.querySelector(`[name="${id}"]`);
+      if (input && input.files.length > 0) {
+        const file = input.files[0];
+        const newFile = new File([file], `${timestamp}_${file.name}`, { type: file.type });
+        formData.delete(id);
+        formData.append(id, newFile);
+      }
+    });
 
-                                    if (response.ok) {
-                                      status.innerHTML = "<span style='color: green;'>Thanks for your submission! We will connect you soon.</span>";
-                                      form.reset();
-                                      document.getElementById("residentialFields").style.display = "none";
-                                      document.getElementById("commercialField").style.display = "none";
-                                    } else {
-                                      const result = await response.json();
-                                      status.innerHTML = result.errors
-                                        ? "<span style='color: red;'>" + result.errors.map(e => e.message).join(", ") + "</span>"
-                                        : "<span style='color: red;'>Oops! There was a problem submitting your form.</span>";
-                                    }
-                                  } catch (error) {
-                                    status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
-                                  }
-                                });
-                           </script>
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        status.innerHTML = "<span style='color: green;'>Thanks for your submission! We will connect you soon.</span>";
+        form.reset();
+        document.getElementById("residentialFields").style.display = "none";
+        document.getElementById("commercialField").style.display = "none";
+      } else {
+        const result = await response.json();
+        status.innerHTML = result.errors
+          ? "<span style='color: red;'>" + result.errors.map(e => e.message).join(", ") + "</span>"
+          : "<span style='color: red;'>Oops! There was a problem submitting your form.</span>";
+      }
+    } catch (error) {
+      status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
+    }
+  });
+</script>
+
 
                   </div>
                </div>

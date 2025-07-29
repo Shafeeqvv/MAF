@@ -17,14 +17,14 @@ li,
 }
 
 
- #popup-signature-pad {
-  width: 100%;
-  max-width: 500px;
-  height: 200px;
-  border: 1px solid #ccc;
-  touch-action: none;
-  background-color: #fff;
-}
+     #popup-signature-pad {
+      width: 100%;
+      max-width: 500px;
+      height: 200px;
+      border: 1px solid #ccc;
+      touch-action: none;
+      background-color: #fff;
+    }
     .modal-overlay {
       position: fixed;
       top: 0; left: 0;
@@ -44,18 +44,18 @@ li,
       padding: 10px 20px;
       margin: 10px 5px 0 0;
     }
-                            .buttons {
-                              margin-top: 10px;
-                              text-align: center;
-                            }
-                            .buttons button {
-                              margin: 0 5px;
-                              padding: 8px 16px;
-                            }
+    .buttons {
+      margin-top: 10px;
+      text-align: center;
+    }                        
+    .buttons button {
+      margin: 0 5px;
+      padding: 8px 16px;
+    }
                            
                            
 
-                            #reading-boxes input[type="text"] {
+                          #reading-boxes input[type="text"] {
                               width: 35px;
                               height: 35px;
                               font-size: 12px;
@@ -80,7 +80,7 @@ li,
                                 font-size: 12px;
                                 line-height: 48px;
                               }
-                            }
+                            }    
 
   .highlight-link {
     background-color: #8B0000; /* Dark red */
