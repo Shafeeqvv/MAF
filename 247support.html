@@ -302,6 +302,32 @@
 
                          if (response.ok) {
                            status.innerHTML = "<span style='color: green;'>Thanks for your submission!</span>";
+
+                            // Collect all form data
+                              const nationality = form.querySelector('[name="Nationality"]').value;
+                              const fullName = form.querySelector('[name="Full_Name"]').value;
+                              const email = form.querySelector('[name="Email"]').value;
+                              const mobile = form.querySelector('[name="Mobile_Number"]').value;
+                              const landLine = form.querySelector('[name="Land_Line"]').value || 'N/A';
+                              const building = form.querySelector('[name="Building_Name"]').value;
+                              const description = form.querySelector('[name="Description"]').value || 'N/A';
+
+                              // Build WhatsApp message
+                              const message = `New 24x7 Support Request:\n` +
+                                              `Nationality: ${nationality}\n` +
+                                              `Full Name: ${fullName}\n` +
+                                              `Email: ${email}\n` +
+                                              `Mobile: ${mobile}\n` +
+                                              `Land Line: ${landLine}\n` +
+                                              `Building: ${building}\n` +
+                                              `Description: ${description}`;
+
+                              const whatsappNumber = "971564042236"; // Replace with your target number
+                              const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+                           // Open WhatsApp with pre-filled message
+                           window.open(whatsappURL, '_blank');
+
                            form.reset();
                          } else {
                            const result = await response.json();
