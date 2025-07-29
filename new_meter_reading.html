@@ -335,12 +335,12 @@
 
                         
                        <script>
-                       // Auto focus & input validation for meter fields
-                       const meterInputs = document.querySelectorAll('.reading-input');
+                       // ===================== Meter Reading Logic =====================
+                       const meterInputs = document.querySelectorAll('#reading-boxes input[type="text"]');
 
                        meterInputs.forEach((input, index) => {
                          input.addEventListener('input', () => {
-                           input.value = input.value.replace(/\D/g, ''); // Only digits
+                           input.value = input.value.replace(/\D/g, ''); // Only allow digits
                            if (input.value && index < meterInputs.length - 1) {
                              meterInputs[index + 1].focus();
                            }
@@ -364,8 +364,24 @@
                          });
                        });
 
-                       // Handle form submission
-                       document.getElementById("my-main-form").addEventListener("submit", async function(event) {
+                       // ===================== Toggle Residential and Commercial Fields =====================
+                       document.querySelectorAll('input[name="Connection_Type"]').forEach(function (radio) {
+                         radio.addEventListener('change', function () {
+                           const residential = document.getElementById('residentialFields');
+                           const commercial = document.getElementById('commercialField');
+
+                           if (this.value === 'Residential') {
+                             residential.style.display = 'block';
+                             commercial.style.display = 'none';
+                           } else if (this.value === 'Commercial') {
+                             residential.style.display = 'none';
+                             commercial.style.display = 'block';
+                           }
+                         });
+                       });
+
+                       // ===================== Handle Form Submission =====================
+                       document.getElementById("my-main-form").addEventListener("submit", async function (event) {
                          event.preventDefault();
 
                          const form = event.target;
@@ -375,11 +391,10 @@
                          let reading = '';
                          meterInputs.forEach((input, i) => {
                            reading += input.value.trim();
-                           if (i === 4) reading += '.'; // Add dot after 5th input
+                           if (i === 4) reading += '.'; // Add decimal after 5th input
                          });
 
                          document.getElementById('Meter_Reading').value = reading;
-
                          status.innerHTML = "<span style='color: blue;'>Submitting...</span>";
 
                          try {
@@ -397,7 +412,7 @@
                              document.getElementById("residentialFields").style.display = "none";
                              document.getElementById("commercialField").style.display = "none";
 
-                             // Clear reading inputs
+                             // Clear meter input fields
                              meterInputs.forEach(input => input.value = '');
                            } else {
                              const result = await response.json();
@@ -409,83 +424,8 @@
                            status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
                          }
                        });
-
-                        // ================= Meter Reading Logic =================
-                       const inputs = document.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
-                       inputs.forEach((input, index) => {
-                         input.addEventListener('input', () => {
-                           if (!/^\d$/.test(input.value)) {
-                             input.value = '';
-                             return;
-                           }
-                           if (input.value && index < inputs.length - 1) {
-                             inputs[index + 1].focus();
-                           }
-                         });
-
-                         input.addEventListener('keydown', (e) => {
-                           if (e.key === 'Backspace' && input.value === '' && index > 0) {
-                             inputs[index - 1].focus();
-                           }
-                         });
-
-                         input.addEventListener('paste', (e) => {
-                           e.preventDefault();
-                           const paste = e.clipboardData.getData('text').replace(/\D/g, '');
-                           paste.split('').forEach((char, i) => {
-                             if (i < inputs.length) inputs[i].value = char;
-                           });
-                           if (paste.length > 0 && inputs[0]) inputs[0].focus();
-                         });
-                       });
-
-                       // Toggle Residential and Commercial fields
-                       document.querySelectorAll('input[name="Connection_Type"]').forEach(function (radio) {
-                         radio.addEventListener('change', function () {
-                           const residential = document.getElementById('residentialFields');
-                           const commercial = document.getElementById('commercialField');
-
-                           if (this.value === 'Residential') {
-                             residential.style.display = 'block';
-                             commercial.style.display = 'none';
-                           } else if (this.value === 'Commercial') {
-                             residential.style.display = 'none';
-                             commercial.style.display = 'block';
-                           }
-                         });
-                       });
-
-
-                         // ================= Meter Reading Logic =================
-                       const inputs = document.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
-                       inputs.forEach((input, index) => {
-                         input.addEventListener('input', () => {
-                           if (!/^\d$/.test(input.value)) {
-                             input.value = '';
-                             return;
-                           }
-                           if (input.value && index < inputs.length - 1) {
-                             inputs[index + 1].focus();
-                           }
-                         });
-
-                         input.addEventListener('keydown', (e) => {
-                           if (e.key === 'Backspace' && input.value === '' && index > 0) {
-                             inputs[index - 1].focus();
-                           }
-                         });
-
-                         input.addEventListener('paste', (e) => {
-                           e.preventDefault();
-                           const paste = e.clipboardData.getData('text').replace(/\D/g, '');
-                           paste.split('').forEach((char, i) => {
-                             if (i < inputs.length) inputs[i].value = char;
-                           });
-                           if (paste.length > 0 && inputs[0]) inputs[0].focus();
-                         });
-                       });
-
                      </script>
+
 
                   </div>
                </div>
