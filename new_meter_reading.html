@@ -334,7 +334,7 @@
                         </form>
 
                         
-                                            <script>
+                       <script>
                        // Auto focus & input validation for meter fields
                        const meterInputs = document.querySelectorAll('.reading-input');
 
@@ -409,6 +409,24 @@
                            status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
                          }
                        });
+
+
+                       // Toggle Residential and Commercial fields
+                       document.querySelectorAll('input[name="Connection_Type"]').forEach(function (radio) {
+                         radio.addEventListener('change', function () {
+                           const residential = document.getElementById('residentialFields');
+                           const commercial = document.getElementById('commercialField');
+
+                           if (this.value === 'Residential') {
+                             residential.style.display = 'block';
+                             commercial.style.display = 'none';
+                           } else if (this.value === 'Commercial') {
+                             residential.style.display = 'none';
+                             commercial.style.display = 'block';
+                           }
+                         });
+                       });
+                       
                      </script>
 
                   </div>
