@@ -183,7 +183,7 @@
                   <div class="breadcrumb__content z-index d-flex justify-content-center align-items-end">
                      <div class="breadcrumb__section-title-box">
                         <h4 class="breadcrumb__subtitle text-center mb-20">MAF Fire Middle East LLC</h4>
-                        <h3 class="breadcrumb__title text-center"><a href="#new_connection" class="highlight-link">New Connection</a></h3>
+                        <h3 class="breadcrumb__title text-center"><a href="#24x7_Support" class="highlight-link">24*7 Support</a></h3>
                      </div>
                   </div>
                </div>
@@ -194,18 +194,18 @@
 
 
       <!-- form area start -->
-      <div class="tp-contact-form-area pt-120 pb-130" id="new_connection">
+      <div class="tp-contact-form-area pt-120 pb-130" id="24x7_Support">
          <div class="container">
             <div class="row">
                <div class="col-xl-12">
                   <div class="tp-contact-form-border">
-                     <h4 class="tp-contact-form-title">Apply for a fresh connection</h4>
+                     <h4 class="tp-contact-form-title">Please provide your details</h4>
 
                      
                         <form id="my-main-form" action="https://formsubmit.co/shafeeqsharafi@gmail.com" method="POST" enctype="multipart/form-data">
                           <div class="row">
 
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                           <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
                                 <label for="Region">Select Region <span style="color: red;">*</span></label>
                                 <select name="Region" class="nice-select country-select wide" required>
@@ -213,7 +213,7 @@
                                   <option value="Dubai & Northern Emirates">Dubai & Northern Emirates</option>
                                 </select>
                               </div>
-                            </div>
+                            </div>-->
 
                             <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
@@ -255,66 +255,6 @@
                               </div>
                             </div>
 
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
-                              <label>Connection Type<span style="color: red;">*</span></label>
-                              <div class="tp-contact-form-input-box">
-                                <label><input type="radio" name="Connection_Type" value="Residential"> Residential</label>
-                                <label><input type="radio" name="Connection_Type" value="Commercial"> Commercial</label>
-                              </div>
-                            </div>
-
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
-                              <!-- Residential -->
-                              <div id="residentialFields" style="display: none;">
-                                <label>Emirates Id<span style="color: red;">*</span></label>
-                                 <input type="text" name="Emirates_Id" 
-                                        class="mb-2" 
-                                        id="emirates-id" 
-                                        placeholder="784-YYYY-NNNNNNN-N" 
-                                        pattern="784-\d{4}-\d{7}-\d{1}" 
-                                        title="Format: 784-YYYY-NNNNNNN-N" 
-                                        maxlength="19" 
-                                        >
-
-                                        <script>
-                                          document.getElementById("emirates-id").addEventListener("input", function(e) {
-                                              let value = e.target.value.replace(/\D/g, "").substring(0, 15); // remove non-digits
-                                              let formatted = "";
-
-                                              if (value.length > 0) formatted = value.substring(0, 3);
-                                              if (value.length >= 4) formatted += "-" + value.substring(3, 7);
-                                              if (value.length >= 8) formatted += "-" + value.substring(7, 14);
-                                              if (value.length >= 15) formatted += "-" + value.substring(14, 15);
-
-                                              e.target.value = formatted;
-                                          });
-                                          </script>
-
-
-                                <label>Upload Emirates Id</label>
-                                <input type="file" name="EmiratesId_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2"><br>
-
-                                <label>Upload Ejari Document</label>
-                                <input type="file" name="Ejari_Document_File" accept=".jpg,.jpeg,.png,.pdf">
-                                
-                              </div>
-
-                              <!-- Commercial -->
-                              <div id="commercialField" style="display: none;">
-                                <label>Other Id (Trade License, Embassy ID)<span style="color: red;">*</span></label>
-                                <input type="text" id="other-id" name="Other_Id" class="mb-2">
-
-                                <label>Upload VAT Certificate</label>
-                                <input type="file" name="VAT_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
-
-                                <label>Upload Trade License</label>
-                                <input type="file" name="Trade_License_File" accept=".jpg,.jpeg,.png,.pdf" class="mb-2">
-
-                                <label>Upload Ejari Document</label>
-                                <input type="file" name="Ejari_Document_File" accept=".jpg,.jpeg,.png,.pdf">
-                              </div>
-                            </div>
-
                             <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
                                 <label for="Building_Name">Building Name <span style="color: red;">*</span></label>
@@ -322,52 +262,22 @@
                               </div>
                             </div>
 
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                <label for="Apartment_Unit_No">Apartment/Villa/Unit No</label>
-                                <input type="text" name="Apartment_Unit_No">
-                              </div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
-                              <div class="tp-contact-form-input-box">
-                                <label for="Meter_Serial_Number">Meter Serial Number</label>
-                                <input type="text" name="Meter_Serial_Number">
-                              </div>
-                            </div>
-
-                            <!-- Meter Reading -->
                             <div class="col-12 mb-20">
-                             <label for="Current_Meter_Reading">Current Meter Reading<span style="color: red;">*</span></label>
-                             <div id="reading-boxes" class="otp-container">
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               
-                               <!-- Static dot instead of input -->
-                               <span class="static-dot">.</span>
+                              <div class="tp-contact-form-input-box">
+                                <label for="Description">Description</label>
+                                <textarea name="Description"></textarea>
+                              </div>
+                            </div>
 
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               
-                               <input type="hidden" name="Meter_Reading" id="Meter_Reading">
-                             </div>
-                           </div>
-
+                            <input type="hidden" name="_subject" value="Complaint Submission">
+                            <input type="hidden" name="_captcha" value="false">
 
                             <div class="col-xl-3 col-lg-3 col-md-3 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
-                                <label for="MeterReadingImage">Attach Reading Image</label>
-                                <input type="file" name="MeterReadingImage" accept="image/*" capture="environment">
+                                <label for="File_Attachment">Attach  file</label>
+                                <input type="file" name="File_Attachment" >
                               </div>
                             </div>
-
-                            <!-- Hidden Fields for FormSubmit -->
-                            <input type="hidden" name="_subject" value="New Gas Connection Request">
-                            <input type="hidden" name="_captcha" value="false">
 
                           </div>
 
@@ -383,42 +293,7 @@
 
                         </form>
 
-                        <style>
-                          #reading-boxes input[type="text"] {
-                            width: 35px;
-                            height: 35px;
-                            font-size: 12px;
-                            padding: 5px;
-                            text-align: center;
-                            border: 1px solid #ccc;
-                            border-radius: 0px;
-                            outline: none;
-                            transition: border-color 0.2s;
-                          }
-
-                          .static-dot {
-                             display: inline-block;
-                             width: 20px;
-                             text-align: center;
-                             font-size: 45px;
-                             line-height: 35px;
-                           }
-
-
-                          #reading-boxes input[type="text"]:focus {
-                            border-color: red;
-                          }
-
-                          @media (max-width: 480px) {
-                            #reading-boxes input[type="text"] {
-                              width: 36px;
-                              height: 48px;
-                              font-size: 12px;
-                              padding: 5px;
-                              line-height: 48px;
-                            }
-                          }
-                        </style>
+                       
 
                         
                        <script>

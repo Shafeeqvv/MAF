@@ -204,7 +204,6 @@
                      
                         <form id="my-main-form" action="https://formsubmit.co/shafeeqsharafi@gmail.com" method="POST" enctype="multipart/form-data">
                           <div class="row">
-
                             <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
                                 <label for="Region">Select Region <span style="color: red;">*</span></label>
@@ -321,26 +320,25 @@
                             </div>
 
                             <!-- Meter Reading -->
-                            <div class="col-12 mb-20">
-                             <label for="Current_Meter_Reading">Current Meter Reading<span style="color: red;">*</span></label>
-                             <div id="reading-boxes" class="otp-container">
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               
-                               <!-- Static dot instead of input -->
-                               <span class="static-dot">.</span>
+                              <div class="col-12 mb-20">
+                                <label for="Current_Meter_Reading">Current Meter Reading<span style="color: red;">*</span></label>
+                                <div id="reading-boxes" class="otp-container">
+                                  <input type="text" maxlength="1" />
+                                  <input type="text" maxlength="1" />
+                                  <input type="text" maxlength="1" />
+                                  <input type="text" maxlength="1" />
+                                  <input type="text" maxlength="1" />
+                                  
+                                  <!-- Static dot instead of input -->
+                                  <span class="static-dot">.</span>
 
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               <input type="text" maxlength="1" />
-                               
-                               <input type="hidden" name="Meter_Reading" id="Meter_Reading">
-                             </div>
-                           </div>
-
+                                  <input type="text" maxlength="1" />
+                                  <input type="text" maxlength="1" />
+                                  <input type="text" maxlength="1" />
+                                  
+                                  <input type="hidden" name="Meter_Reading" id="Meter_Reading">
+                                </div>
+                              </div>
 
                             <div class="col-xl-3 col-lg-3 col-md-3 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
@@ -349,16 +347,7 @@
                               </div>
                             </div>
 
-                            <div class="col-12">
-                               <div class="signature-container">
-                                 <label for="signature">Draw Signature</label>
-                                 <canvas id="signature-pad"></canvas>
-                                 <div class="buttons">
-                                   <button type="button" onclick="clearSignature()">Clear</button>
-                                   <button type="button" onclick="saveSignature()">Save Signature</button>
-                                 </div>
-                            </div>
-                            </div>
+                           
 
                             <!-- Hidden Fields for FormSubmit -->
                             <input type="hidden" name="_subject" value="New Gas Connection Request">
@@ -366,8 +355,9 @@
 
                           </div>
 
+                          <button type="button" class="tp-btn float-end" onclick="openModal()"><span>Confirm</span></button>
 
-                          <button type="submit" class="tp-btn float-end"><span>Confirm</span></button>
+
 
                           <!-- Message area below the button -->
                           <p id="form-status" class="text-center m-2"></p>
@@ -377,257 +367,281 @@
                            <input type="hidden" name="_captcha" value="false">
                            <input type="hidden" name="_template" value="table">
 
-                            
+                           
 
-                            <!-- Hidden file input for signature image -->
-                            <input type="file" name="signature" id="signature-file" style="display: block;" />
+                            <!-- Terms & Conditions Modal -->
+                              <div id="termsModal" class="modal-overlay" style="display: none;">
+                                <div class="modal-box">
+                                  <h3>Terms and Conditions</h3>
+                                  <div class="modal-content">
+                                    <p>Please read and accept the terms and conditions to continue.</p>
+                                    <ul>
+                                      <li>By submitting this form, you confirm all details are accurate.</li>
+                                      <li>You authorize the gas connection team to review your application.</li>
+                                      <li>Signature and Emirates ID are mandatory for processing.</li>
+                                    </ul>
+                                    <label>
+                                      <input type="checkbox" id="accept-terms"> I accept the terms and conditions
+                                    </label>
 
+                                    <!-- Signature Area -->
+                                    <div class="signature-container mt-3">
+                                      <label>Draw Your Signature <span style="color:red">*</span></label>
+                                    <canvas id="popup-signature-pad" width="500" height="200" style="width: 100%; border: 1px solid #ccc;"></canvas>
+                                      <div class="buttons">
+                                        <button type="button" onclick="clearSignature()">Clear</button>
+                                        <button type="button" onclick="saveSignature()">Save Signature</button>
+                                          <input type="file" name="Signature_File" id="signature-file" style="display: block;" /></div>
+                                    </div>
+                                  </div>
 
-                        </form>
+                                  <!-- Final Confirmation -->
+                                  <div class="modal-footer">
+                                    <button class="tp-btn" onclick="submitForm()">Submit</button>
+                                    <button class="tp-btn-secondary" onclick="closeModal()">Cancel</button>
+                                  </div>
+                                </div>
+                              </div>
+                           </form>
 
-                        <style>
-                            .signature-container {
-                              border: 1px solid #ccc;
-                              border-radius: 8px;
-                              max-width: 300px;
-                              margin: auto;
-                            }
-                            #signature-pad {
-                              width: 100%;
-                              height: 200px;
-                              touch-action: none;
-                            }
-                            .buttons {
-                              margin-top: 10px;
-                              text-align: center;
-                            }
-                            .buttons button {
-                              margin: 0 5px;
-                              padding: 8px 16px;
-                            }
-                            canvas {
-                              background-color: #fff;
-                              border: 1px solid #000;
-                              width: 100%;
-                              height: 200px;
-                            }
-                            @media (max-width: 600px) {
-                              canvas {
-                                height: 150px;
-                              }
-                            }
-
-                            #reading-boxes input[type="text"] {
-                              width: 35px;
-                              height: 35px;
-                              font-size: 12px;
-                              padding: 5px;
-                              text-align: center;
-                              border: 1px solid #ccc;
-                              outline: none;
-                            }
-
-                            .static-dot {
-                              display: inline-block;
-                              width: 20px;
-                              text-align: center;
-                              font-size: 45px;
-                              line-height: 35px;
-                            }
-
-                            @media (max-width: 480px) {
-                              #reading-boxes input[type="text"] {
-                                width: 36px;
-                                height: 48px;
-                                font-size: 12px;
-                                line-height: 48px;
-                              }
-                            }
-                          </style>
-
-                        
                            <script>
-                           const canvas = document.getElementById('signature-pad');
-                            const ctx = canvas.getContext('2d');
-                            let drawing = false;
+                                // ================= Modal Open/Close =================
+                                function openModal() {
+                                  document.getElementById("termsModal").style.display = "flex";
+                                }
 
-                            // Resize canvas
-                            function resizeCanvas() {
-                              const tempImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                              canvas.width = canvas.offsetWidth;
-                              canvas.height = canvas.offsetHeight;
-                              ctx.putImageData(tempImage, 0, 0);
-                            }
+                                function closeModal() {
+                                  document.getElementById("termsModal").style.display = "none";
+                                }
 
-                            window.addEventListener('resize', resizeCanvas);
-                            resizeCanvas();
+                                // ================= Signature Handling =================
+                                const popupCanvas = document.getElementById('popup-signature-pad');
+                                const popupCtx = popupCanvas.getContext('2d');
 
-                            // Drawing logic
-                            function startDraw(e) {
-                              drawing = true;
-                              ctx.beginPath();
-                              ctx.moveTo(getX(e), getY(e));
-                            }
+                                let drawing = false;
 
-                            function draw(e) {
-                              if (!drawing) return;
-                              ctx.lineTo(getX(e), getY(e));
-                              ctx.strokeStyle = 'black';
-                              ctx.lineWidth = 2;
-                              ctx.lineCap = 'round';
-                              ctx.stroke();
-                            }
+                                function resizeCanvas() {
+                                  // Resize canvas to be full width (max 500px) and fixed height 150px
+                                  popupCanvas.width = Math.min(window.innerWidth * 0.8, 500);
+                                  popupCanvas.height = 150;
 
-                            function stopDraw() {
-                              drawing = false;
-                            }
+                                  // Fill white background
+                                  popupCtx.fillStyle = "#fff";
+                                  popupCtx.fillRect(0, 0, popupCanvas.width, popupCanvas.height);
+                                }
 
-                            function getX(e) {
-                              return e.touches ? e.touches[0].clientX - canvas.getBoundingClientRect().left : e.offsetX;
-                            }
+                                // Initial resize
+                                resizeCanvas();
 
-                            function getY(e) {
-                              return e.touches ? e.touches[0].clientY - canvas.getBoundingClientRect().top : e.offsetY;
-                            }
+                                window.addEventListener('resize', resizeCanvas);
 
-                            canvas.addEventListener('mousedown', startDraw);
-                            canvas.addEventListener('mousemove', draw);
-                            canvas.addEventListener('mouseup', stopDraw);
-                            canvas.addEventListener('mouseout', stopDraw);
+                                function getPos(e) {
+                                  const rect = popupCanvas.getBoundingClientRect();
+                                  if (e.touches && e.touches.length > 0) {
+                                    return {
+                                      x: e.touches[0].clientX - rect.left,
+                                      y: e.touches[0].clientY - rect.top
+                                    };
+                                  } else {
+                                    return {
+                                      x: e.clientX - rect.left,
+                                      y: e.clientY - rect.top
+                                    };
+                                  }
+                                }
 
-                            canvas.addEventListener('touchstart', startDraw);
-                            canvas.addEventListener('touchmove', draw);
-                            canvas.addEventListener('touchend', stopDraw);
+                                function startDraw(e) {
+                                  drawing = true;
+                                  const pos = getPos(e);
+                                  popupCtx.beginPath();
+                                  popupCtx.moveTo(pos.x, pos.y);
+                                  e.preventDefault();
+                                }
 
-                            // Clear canvas
-                            function clearSignature() {
-                              ctx.clearRect(0, 0, canvas.width, canvas.height);
-                            }
+                                function draw(e) {
+                                  if (!drawing) return;
+                                  const pos = getPos(e);
+                                  popupCtx.lineTo(pos.x, pos.y);
+                                  popupCtx.strokeStyle = "#000";  // Black color
+                                  popupCtx.lineWidth = 2;
+                                  popupCtx.lineCap = "round";
+                                  popupCtx.stroke();
+                                  e.preventDefault();
+                                }
 
-                            // Save signature to hidden file input
-                            function saveSignature() {
-                              canvas.toBlob(function(blob) {
-                                const fileInput = document.getElementById('signature-file');
-                                const file = new File([blob], "signature.png", { type: "image/png" });
+                                function stopDraw(e) {
+                                  if (!drawing) return;
+                                  drawing = false;
+                                  e.preventDefault();
+                                }
 
-                                // Create a DataTransfer to assign file to input
-                                const dataTransfer = new DataTransfer();
-                                dataTransfer.items.add(file);
-                                fileInput.files = dataTransfer.files;
+                                // Mouse events
+                                popupCanvas.addEventListener('mousedown', startDraw);
+                                popupCanvas.addEventListener('mousemove', draw);
+                                popupCanvas.addEventListener('mouseup', stopDraw);
+                                popupCanvas.addEventListener('mouseleave', stopDraw);
 
-                                alert("Signature saved successfully!");
-                              });
-                            }
+                                // Touch events
+                                popupCanvas.addEventListener('touchstart', startDraw, { passive: false });
+                                popupCanvas.addEventListener('touchmove', draw, { passive: false });
+                                popupCanvas.addEventListener('touchend', stopDraw);
+                                popupCanvas.addEventListener('touchcancel', stopDraw);
 
-                        document.getElementById("emirates-id").addEventListener("input", function(e) {
-                                              let value = e.target.value.replace(/\D/g, "").substring(0, 15); // remove non-digits
-                                              let formatted = "";
+                                // Clear the signature pad
+                                function clearSignature() {
+                                  popupCtx.clearRect(0, 0, popupCanvas.width, popupCanvas.height);
+                                  popupCtx.fillStyle = "#fff";
+                                  popupCtx.fillRect(0, 0, popupCanvas.width, popupCanvas.height);
+                                  document.getElementById("signature-file").value = '';
+                                }
 
-                                              if (value.length > 0) formatted = value.substring(0, 3);
-                                              if (value.length >= 4) formatted += "-" + value.substring(3, 7);
-                                              if (value.length >= 8) formatted += "-" + value.substring(7, 14);
-                                              if (value.length >= 15) formatted += "-" + value.substring(14, 15);
+                                // Save the signature as a PNG and put it into hidden file input
+                                function saveSignature() {
+                                  // Check if blank
+                                  const blankCanvas = document.createElement('canvas');
+                                  blankCanvas.width = popupCanvas.width;
+                                  blankCanvas.height = popupCanvas.height;
+                                  const blankCtx = blankCanvas.getContext('2d');
+                                  blankCtx.fillStyle = "#fff";
+                                  blankCtx.fillRect(0, 0, blankCanvas.width, blankCanvas.height);
 
-                                              e.target.value = formatted;
-                        });
-                       
-                       document.querySelectorAll('input[name="Connection_Type"]').forEach(radio => {
-                          radio.addEventListener('change', function () {
-                            const selected = this.value;
+                                  if (popupCanvas.toDataURL() === blankCanvas.toDataURL()) {
+                                    alert("Please sign before saving.");
+                                    return;
+                                  }
 
-                            const emiratesIdField = document.getElementById("emirates-id");
-                            const otherIdField = document.getElementById("other-id");
+                                  popupCanvas.toBlob(function(blob) {
+                                    const file = new File([blob], "signature.png", { type: "image/png" });
+                                    const dt = new DataTransfer();
+                                    dt.items.add(file);
+                                    document.getElementById("signature-file").files = dt.files;
+                                    alert("Signature saved!");
+                                  });
+                                }
 
-                            if (selected === "Residential") {
-                              document.getElementById("residentialFields").style.display = "block";
-                              document.getElementById("commercialField").style.display = "none";
-                              emiratesIdField.setAttribute("required", "required");
-                              otherIdField.removeAttribute("required")
-                            } else if (selected === "Commercial") {
-                              document.getElementById("residentialFields").style.display = "none";
-                              document.getElementById("commercialField").style.display = "block";
-                              emiratesIdField.removeAttribute("required");
-                              otherIdField.setAttribute("required", "required");
-                            }
-                          });
-                        });
- 
 
-                       // Meter reading inputs auto-focus and validation
-                       const inputs = document.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
-                       inputs.forEach((input, index) => {
-                         input.addEventListener('input', () => {
-                           if (!/^\d$/.test(input.value)) {
-                             input.value = '';
-                             return;
-                           }
-                           if (input.value && index < inputs.length - 1) {
-                             inputs[index + 1].focus();
-                           }
-                         });
+                                // ================= Final Form Submit =================
+                                function submitForm() {
+                                  const accepted = document.getElementById("accept-terms").checked;
+                                  const sigFile = document.getElementById("signature-file");
 
-                         input.addEventListener('keydown', (e) => {
-                           if (e.key === 'Backspace' && input.value === '' && index > 0) {
-                             inputs[index - 1].focus();
-                           }
-                         });
+                                  if (!accepted) {
+                                    alert("You must accept the terms and conditions.");
+                                    return;
+                                  }
 
-                         input.addEventListener('paste', (e) => {
-                           e.preventDefault();
-                           const paste = e.clipboardData.getData('text').replace(/\D/g, '');
-                           paste.split('').forEach((char, i) => {
-                             if (i < inputs.length) inputs[i].value = char;
-                           });
-                           if (paste.length > 0 && inputs[0]) inputs[0].focus();
-                         });
-                       });
+                                  if (!sigFile.files || sigFile.files.length === 0) {
+                                    alert("Please draw and save your signature.");
+                                    return;
+                                  }
 
-                       // Handle form submission
-                       document.getElementById("my-main-form").addEventListener("submit", async function(event) {
-                         event.preventDefault();
+                                  document.getElementById("termsModal").style.display = "none";
+                                  document.getElementById("my-main-form").requestSubmit();
+                                }
 
-                         const form = event.target;
-                         const status = document.getElementById("form-status");
-                         
-                         // Combine meter digits into one reading, insert dot after 5th digit
-                         const meterInputs = form.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
-                         let meterReading = '';
-                         meterInputs.forEach((input, index) => {
-                           meterReading += input.value;
-                           if (index === 4) {
-                             meterReading += '.'; // Insert dot after 5th digit
-                           }
-                         });
+                                // ================= Emirates ID Formatter =================
+                                document.getElementById("emirates-id").addEventListener("input", function (e) {
+                                  let value = e.target.value.replace(/\D/g, "").substring(0, 15);
+                                  let formatted = "";
 
-                         document.getElementById('Meter_Reading').value = meterReading;
+                                  if (value.length > 0) formatted = value.substring(0, 3);
+                                  if (value.length >= 4) formatted += "-" + value.substring(3, 7);
+                                  if (value.length >= 8) formatted += "-" + value.substring(7, 14);
+                                  if (value.length >= 15) formatted += "-" + value.substring(14, 15);
 
-                         status.innerHTML = "<span style='color: blue;'>Submitting...</span>";
+                                  e.target.value = formatted;
+                                });
 
-                         try {
-                           const response = await fetch(form.action, {
-                             method: form.method,
-                             body: new FormData(form), // includes updated hidden fields
-                             headers: { 'Accept': 'application/json' }
-                           });
+                                // ================= Connection Type Toggle =================
+                                document.querySelectorAll('input[name="Connection_Type"]').forEach(radio => {
+                                  radio.addEventListener('change', function () {
+                                    const emiratesIdField = document.getElementById("emirates-id");
+                                    const otherIdField = document.getElementById("other-id");
 
-                           if (response.ok) {
-                             status.innerHTML = "<span style='color: green;'>Thanks for your submission! We will connect you soon</span>";
-                             form.reset();
-                             document.getElementById("residentialFields").style.display = "none";
-                             document.getElementById("commercialField").style.display = "none";
-                           } else {
-                             const result = await response.json();
-                             if (result.errors) {
-                               status.innerHTML = "<span style='color: red;'>" + result.errors.map(e => e.message).join(", ") + "</span>";
-                             } else {
-                               status.innerHTML = "<span style='color: red;'>Oops! There was a problem submitting your form.</span>";
-                             }
-                           }
-                         } catch (error) {
-                           status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
-                         }
-                       });
-                     </script>
+                                    if (this.value === "Residential") {
+                                      document.getElementById("residentialFields").style.display = "block";
+                                      document.getElementById("commercialField").style.display = "none";
+                                      emiratesIdField.required = true;
+                                      otherIdField.required = false;
+                                    } else {
+                                      document.getElementById("residentialFields").style.display = "none";
+                                      document.getElementById("commercialField").style.display = "block";
+                                      emiratesIdField.required = false;
+                                      otherIdField.required = true;
+                                    }
+                                  });
+                                });
+
+                                // ================= Meter Reading Logic =================
+                                const inputs = document.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
+                                inputs.forEach((input, index) => {
+                                  input.addEventListener('input', () => {
+                                    if (!/^\d$/.test(input.value)) {
+                                      input.value = '';
+                                      return;
+                                    }
+                                    if (input.value && index < inputs.length - 1) {
+                                      inputs[index + 1].focus();
+                                    }
+                                  });
+
+                                  input.addEventListener('keydown', (e) => {
+                                    if (e.key === 'Backspace' && input.value === '' && index > 0) {
+                                      inputs[index - 1].focus();
+                                    }
+                                  });
+
+                                  input.addEventListener('paste', (e) => {
+                                    e.preventDefault();
+                                    const paste = e.clipboardData.getData('text').replace(/\D/g, '');
+                                    paste.split('').forEach((char, i) => {
+                                      if (i < inputs.length) inputs[i].value = char;
+                                    });
+                                    if (paste.length > 0 && inputs[0]) inputs[0].focus();
+                                  });
+                                });
+
+                                // ================= Form Submission =================
+                                document.getElementById("my-main-form").addEventListener("submit", async function (event) {
+                                  event.preventDefault();
+                                  const form = event.target;
+                                  const status = document.getElementById("form-status");
+
+                                  // Combine meter digits
+                                  const meterInputs = form.querySelectorAll('#reading-boxes input[type="text"]:not([disabled])');
+                                  let meterReading = '';
+                                  meterInputs.forEach((input, index) => {
+                                    meterReading += input.value;
+                                    if (index === 4) meterReading += '.';
+                                  });
+                                  document.getElementById('Meter_Reading').value = meterReading;
+
+                                  status.innerHTML = "<span style='color: blue;'>Submitting...</span>";
+
+                                  try {
+                                    const response = await fetch(form.action, {
+                                      method: form.method,
+                                      body: new FormData(form),
+                                      headers: { 'Accept': 'application/json' }
+                                    });
+
+                                    if (response.ok) {
+                                      status.innerHTML = "<span style='color: green;'>Thanks for your submission! We will connect you soon.</span>";
+                                      form.reset();
+                                      document.getElementById("residentialFields").style.display = "none";
+                                      document.getElementById("commercialField").style.display = "none";
+                                    } else {
+                                      const result = await response.json();
+                                      status.innerHTML = result.errors
+                                        ? "<span style='color: red;'>" + result.errors.map(e => e.message).join(", ") + "</span>"
+                                        : "<span style='color: red;'>Oops! There was a problem submitting your form.</span>";
+                                    }
+                                  } catch (error) {
+                                    status.innerHTML = "<span style='color: red;'>Oops! There was a network error.</span>";
+                                  }
+                                });
+                           </script>
+
                   </div>
                </div>
             </div>

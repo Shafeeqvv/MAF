@@ -182,7 +182,7 @@
                   <div class="breadcrumb__content z-index d-flex justify-content-center align-items-end">
                      <div class="breadcrumb__section-title-box">
                         <h4 class="breadcrumb__subtitle text-center mb-20">MAF Fire Middle East LLC</h4>
-                        <h3 class="breadcrumb__title text-center"><a href="#new_connection" class="highlight-link">New Connection</a></h3>
+                        <h3 class="breadcrumb__title text-center"><a href="#new_reading" class="highlight-link">New Meter Reading</a></h3>
                      </div>
                   </div>
                </div>
@@ -193,18 +193,18 @@
 
 
       <!-- form area start -->
-      <div class="tp-contact-form-area pt-120 pb-130" id="new_connection">
+      <div class="tp-contact-form-area pt-120 pb-130" id="new_reading">
          <div class="container">
             <div class="row">
                <div class="col-xl-12">
                   <div class="tp-contact-form-border">
-                     <h4 class="tp-contact-form-title">Apply for a fresh connection</h4>
+                     <h4 class="tp-contact-form-title">Details for New Meter Reading</h4>
 
                      
                         <form id="my-main-form" action="https://formsubmit.co/shafeeqsharafi@gmail.com" method="POST" enctype="multipart/form-data">
                           <div class="row">
 
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
+                           <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
                               <div class="tp-contact-form-input-box">
                                 <label for="Region">Select Region <span style="color: red;">*</span></label>
                                 <select name="Region" class="nice-select country-select wide" required>
@@ -252,7 +252,7 @@
                                 <label for="Land_Line">Land line</label>
                                 <input type="text" name="Land_Line">
                               </div>
-                            </div>
+                            </div> -->
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
                               <label>Connection Type<span style="color: red;">*</span></label>
@@ -263,7 +263,6 @@
                             </div>
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-20">
-                              <!-- Residential -->
                               <div id="residentialFields" style="display: none;">
                                 <label>Emirates Id<span style="color: red;">*</span></label>
                                  <input type="text" name="Emirates_Id" 
@@ -375,49 +374,12 @@
                           <!-- Message area below the button -->
                           <p id="form-status" class="text-center m-2"></p>
 
-                           <input type="hidden" name="_subject" value="New submission for Gas Connection! ">
+                           <input type="hidden" name="_subject" value="New submission for new meter reading! ">
                            <input type="hidden" name="_blacklist" value="spammy pattern, banned term, phrase">
                            <input type="hidden" name="_captcha" value="false">
                            <input type="hidden" name="_template" value="table">
 
                         </form>
-
-                        <style>
-                          #reading-boxes input[type="text"] {
-                            width: 35px;
-                            height: 35px;
-                            font-size: 12px;
-                            padding: 5px;
-                            text-align: center;
-                            border: 1px solid #ccc;
-                            border-radius: 0px;
-                            outline: none;
-                            transition: border-color 0.2s;
-                          }
-
-                          .static-dot {
-                             display: inline-block;
-                             width: 20px;
-                             text-align: center;
-                             font-size: 45px;
-                             line-height: 35px;
-                           }
-
-
-                          #reading-boxes input[type="text"]:focus {
-                            border-color: red;
-                          }
-
-                          @media (max-width: 480px) {
-                            #reading-boxes input[type="text"] {
-                              width: 36px;
-                              height: 48px;
-                              font-size: 12px;
-                              padding: 5px;
-                              line-height: 48px;
-                            }
-                          }
-                        </style>
 
                         
                        <script>
