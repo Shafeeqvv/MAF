@@ -365,37 +365,102 @@
 
                             <!-- Terms & Conditions Modal -->
                               <div id="termsModal" class="modal-overlay" style="display: none;">
-                                <div class="modal-box">
-                                  <h3>Terms and Conditions</h3>
-                                  <div class="modal-content">
-                                    <p>Please read and accept the terms and conditions to continue.</p>
-                                    <ul>
-                                      <li>By submitting this form, you confirm all details are accurate.</li>
-                                      <li>You authorize the gas connection team to review your application.</li>
-                                      <li>Signature and Emirates ID are mandatory for processing.</li>
-                                    </ul>
-                                    <label>
+                                <div class="modal-box" style="max-width: 800px; max-height: 90vh; display: flex; flex-direction: column; background: #fff; border-radius: 8px; overflow: hidden;">
+
+                                  <!-- Modal Header -->
+                                  <div class="modal-header" style="padding: 16px; border-bottom: 1px solid #ccc;">
+                                    <h3 style="margin: 0;">Terms and Conditions</h3>
+                                  </div>
+
+                                  <!-- Scrollable Terms Content -->
+                                  <div class="modal-content" style="height:500px;padding: 16px; overflow-y: auto; flex: 1;">
+                                    <ol style="padding-left: 20px;">
+                                      <li>
+                                        Bills are issued monthly based on meter readings or fixed rates, depending on the gas system installed.
+                                      </li>
+                                      <li>
+                                        Payment is due within 7 days from the invoice date.
+                                      </li>
+                                      <li>
+                                        Late payments may result in service disconnection and/or late fees.
+                                      </li>
+                                      <li>
+                                        Billing disputes must be reported in writing within 7 working days of receiving the invoice.
+                                      </li>
+                                      <li>
+                                        <strong>Installation & Maintenance</strong>
+                                        <ul>
+                                          <li>Initial setup, installation, or connection charges (if any) are payable by the Customer.</li>
+                                          <li>Only Company-authorized technicians may carry out installations or modifications to gas appliances or piping.</li>
+                                          <li>The Company is not responsible for damages caused by unauthorized modifications or third-party installations.</li>
+                                        </ul>
+                                      </li>
+                                      <li>
+                                        <strong>Safety and Liability</strong>
+                                        <ul>
+                                          <li>The Company adheres to safety guidelines set by Dubai Civil Defense and other regulatory bodies.</li>
+                                          <li>The Customer shall not bypass safety devices or tamper with gas infrastructure.</li>
+                                          <li>The Company is not liable for damages resulting from negligence, misuse, or third-party interference.</li>
+                                        </ul>
+                                      </li>
+                                      <li>
+                                        <strong>Termination</strong>
+                                        <ul>
+                                          <li>Either party may terminate this agreement with a 30-day written notice.</li>
+                                          <li>A final meter reading will be taken and any outstanding charges must be settled.</li>
+                                          <li>Security deposit refund is subject to final clearance and return of Company equipment.</li>
+                                        </ul>
+                                      </li>
+                                      <li>
+                                        <strong>Force Majeure</strong><br>
+                                        The Company shall not be held liable for failure to provide service due to events beyond its control, such as natural disasters, supply interruptions, regulatory actions, or civil emergencies.
+                                      </li>
+                                      <li>
+                                        <strong>Dispute Resolution</strong>
+                                        <ul>
+                                          <li>All efforts will be made to resolve disputes amicably.</li>
+                                          <li>Unresolved disputes shall fall under the jurisdiction of the Dubai Courts.</li>
+                                        </ul>
+                                      </li>
+                                      <li>
+                                        <strong>Governing Law</strong><br>
+                                        This agreement shall be governed in accordance with the laws of the United Arab Emirates, specifically the regulations applicable in the Emirate of Dubai.
+                                      </li>
+                                      <li>
+                                        <strong>Acknowledgment</strong><br>
+                                        By signing below, the Customer confirms they have read, understood, and agreed to the above terms and conditions.
+                                      </li>
+                                    </ol>
+                                    <!-- Checkbox -->
+                                    <label style="display: block; margin-bottom: 10px;">
                                       <input type="checkbox" id="accept-terms"> <b>I accept the terms and conditions</b>
                                     </label>
 
-                                    <!-- Signature Area -->
-                                    <div class="signature-container mt-3">
-                                      <label>Draw Your Signature <span style="color:red">*</span></label>
-                                    <canvas id="popup-signature-pad" width="500" height="200" style="width: 100%; border: 1px solid #ccc;"></canvas>
-                                      <div class="buttons">
-                                        <button type="button" onclick="clearSignature()">Clear</button>
-                                        <button type="button" onclick="saveSignature()">Save Signature</button>
-                                        <input type="file" name="Signature_File" id="signature-file" style="display: block;" /></div>
-                                    </div>
                                   </div>
 
-                                  <!-- Final Confirmation -->
-                                  <div class="modal-footer">
-                                    <button type="button" class="tp-btn" style="color: #fff;" onclick="submitForm()">Submit</button>
-                                    <button class="tp-btn-secondary" onclick="closeModal()">Cancel</button>
+                                  <!-- Fixed Footer -->
+                                  <div class="modal-footer" style="padding: 16px; border-top: 1px solid #ccc; background-color: #f9f9f9;">
+                                    
+                                    <!-- Signature Area -->
+                                    <div class="signature-container" style="margin-bottom: 10px;">
+                                      <label>Draw Your Signature <span style="color:red">*</span></label>
+                                      <canvas id="popup-signature-pad" width="500" height="200" style="width: 100%; border: 1px solid #ccc;"></canvas>
+                                      <div class="buttons" style="margin-top: 10px;">
+                                        <button type="button" onclick="clearSignature()">Clear</button>
+                                        <button type="button" onclick="saveSignature()">Save Signature</button>
+                                        <input type="file" name="Signature_File" id="signature-file" style="display: block; margin-top: 10px;" />
+                                      </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div style="text-align: right; margin-top: 10px;">
+                                      <button type="button" class="tp-btn" style="color: #fff;" onclick="submitForm()">Submit</button>
+                                      <button type="button" class="tp-btn-secondary" onclick="closeModal()">Cancel</button>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
+
                               
                            </form>
 
@@ -635,7 +700,7 @@
                            });
 
                            if (response.ok) {
-                             status.innerHTML = "<span style='color: green;'>Thanks for your submission! We will connect you soon.</span>";
+                             status.innerHTML = "<span style='color: green;'>Thanks for your submission! We will connect you soon with in 24 hours.</span>";
                              form.reset();
                              document.getElementById("residentialFields").style.display = "none";
                              document.getElementById("commercialField").style.display = "none";
