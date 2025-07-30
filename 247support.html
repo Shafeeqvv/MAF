@@ -224,11 +224,109 @@
                        <div class="row">
                          <!-- Nationality -->
                          <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
-                           <div class="tp-contact-form-input-box">
-                             <label for="Nationality">Nationality <span style="color: red;">*</span></label>
-                             <input type="text" name="Nationality" required>
-                           </div>
-                         </div>
+                                <div class="tp-contact-form-input-box">
+                                  <label for="nationality-search">Nationality <span style="color: red;">*</span></label>
+                                  <div class="dropdown-container" style="position: relative;">
+                                    <input
+                                      type="text"
+                                      id="nationality-search"
+                                      name="Nationality"
+                                      placeholder="Search nationality..."
+                                      required
+                                      autocomplete="off"
+                                    >
+                                    <div id="dropdown-list" class="dropdown-list"></div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <style>
+                                .dropdown-list {
+                                  border: 1px solid #ccc;
+                                  max-height: 150px;
+                                  overflow-y: auto;
+                                  display: none;
+                                  position: absolute;
+                                  background: white;
+                                  width: 100%;
+                                  z-index: 10;
+                                }
+
+                                .dropdown-item {
+                                  padding: 10px;
+                                  cursor: pointer;
+                                }
+
+                                .dropdown-item:hover {
+                                  background-color: #f0f0f0;
+                                }
+                              </style>
+
+                              <script>
+                                const nationalities = [
+                                  "Afghan", "Albanian", "Algerian", "American", "Andorran", "Angolan", "Argentine", "Armenian",
+                                  "Australian", "Austrian", "Azerbaijani", "Bahraini", "Bangladeshi", "Barbadian", "Belarusian",
+                                  "Belgian", "Belizean", "Beninese", "Bhutanese", "Bolivian", "Bosnian", "Brazilian", "British",
+                                  "Bruneian", "Bulgarian", "Burkinabé", "Burmese", "Burundian", "Cambodian", "Cameroonian",
+                                  "Canadian", "Cape Verdean", "Central African", "Chadian", "Chilean", "Chinese", "Colombian",
+                                  "Comorian", "Congolese", "Costa Rican", "Croatian", "Cuban", "Cypriot", "Czech", "Danish",
+                                  "Djiboutian", "Dominican", "Dutch", "East Timorese", "Ecuadorean", "Egyptian", "Emirati",
+                                  "Equatorial Guinean", "Eritrean", "Estonian", "Ethiopian", "Fijian", "Finnish", "French",
+                                  "Gabonese", "Gambian", "Georgian", "German", "Ghanaian", "Greek", "Grenadian", "Guatemalan",
+                                  "Guinean", "Guinea-Bissauan", "Guyanese", "Haitian", "Honduran", "Hungarian", "Icelandic",
+                                  "Indian", "Indonesian", "Iranian", "Iraqi", "Irish", "Israeli", "Italian", "Ivorian", "Jamaican",
+                                  "Japanese", "Jordanian", "Kazakh", "Kenyan", "Kittitian", "Kuwaiti", "Kyrgyz", "Laotian", "Latvian",
+                                  "Lebanese", "Liberian", "Libyan", "Liechtensteiner", "Lithuanian", "Luxembourger", "Macedonian",
+                                  "Malagasy", "Malawian", "Malaysian", "Maldivian", "Malian", "Maltese", "Marshallese", "Mauritanian",
+                                  "Mauritian", "Mexican", "Micronesian", "Moldovan", "Monacan", "Mongolian", "Montenegrin",
+                                  "Moroccan", "Mozambican", "Namibian", "Nauruan", "Nepalese", "New Zealander", "Nicaraguan",
+                                  "Nigerien", "Nigerian", "North Korean", "Norwegian", "Omani", "Pakistani", "Palauan", "Palestinian",
+                                  "Panamanian", "Papua New Guinean", "Paraguayan", "Peruvian", "Philippine", "Polish", "Portuguese",
+                                  "Qatari", "Romanian", "Russian", "Rwandan", "Saint Lucian", "Salvadoran", "Samoan", "San Marinese",
+                                  "Saudi", "Scottish", "Senegalese", "Serbian", "Seychellois", "Sierra Leonean", "Singaporean",
+                                  "Slovak", "Slovenian", "Solomon Islander", "Somali", "South African", "South Korean", "Spanish",
+                                  "Sri Lankan", "Sudanese", "Surinamese", "Swazi", "Swedish", "Swiss", "Syrian", "Taiwanese",
+                                  "Tajik", "Tanzanian", "Thai", "Togolese", "Tongan", "Trinidadian", "Tunisian", "Turkish",
+                                  "Turkmen", "Tuvaluan", "Ugandan", "Ukrainian", "Uruguayan", "Uzbek", "Vanuatuan", "Venezuelan",
+                                  "Vietnamese", "Welsh", "Yemeni", "Zambian", "Zimbabwean"
+                                ];
+
+                                const searchInput = document.getElementById('nationality-search');
+                                const dropdownList = document.getElementById('dropdown-list');
+
+                                function showDropdown(filtered) {
+                                  dropdownList.innerHTML = '';
+                                  if (filtered.length === 0) {
+                                    dropdownList.style.display = 'none';
+                                    return;
+                                  }
+
+                                  filtered.forEach(item => {
+                                    const div = document.createElement('div');
+                                    div.classList.add('dropdown-item');
+                                    div.textContent = item;
+                                    div.onclick = () => {
+                                      searchInput.value = item;
+                                      dropdownList.style.display = 'none';
+                                    };
+                                    dropdownList.appendChild(div);
+                                  });
+
+                                  dropdownList.style.display = 'block';
+                                }
+
+                                searchInput.addEventListener('input', () => {
+                                  const val = searchInput.value.toLowerCase();
+                                  const filtered = nationalities.filter(n => n.toLowerCase().includes(val));
+                                  showDropdown(filtered);
+                                });
+
+                                document.addEventListener('click', function (e) {
+                                  if (!e.target.closest('.dropdown-container')) {
+                                    dropdownList.style.display = 'none';
+                                  }
+                                });
+                              </script>
 
                          <!-- Full Name -->
                          <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-20">
