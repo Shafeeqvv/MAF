@@ -8040,7 +8040,7 @@ body .ui-tooltip {
   }
 }
 .tp-slider-2-play-box a {
-  margin-right: 0px;
+  margin-right: 5px;
 }
 @media (max-width: 767px) {
   .tp-slider-2-play-box a {
